@@ -1,10 +1,13 @@
 package com.example.a444app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -25,12 +28,12 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        fname = (EditText) findViewById(R.id.name);
-        email = (EditText) findViewById(R.id.email);
-        password = (EditText) findViewById(R.id.password);
-        cpassword = (EditText) findViewById(R.id.cpassword);
-        phoneE = (EditText) findViewById(R.id.phone);
-        ID = (EditText) findViewById(R.id.id);
+        fname = findViewById(R.id.name);
+        email =findViewById(R.id.email);
+        password =  findViewById(R.id.password);
+        cpassword = findViewById(R.id.cpassword);
+        phoneE =  findViewById(R.id.phone);
+        ID = findViewById(R.id.id);
         checkBox=findViewById(R.id.checkbox);
         registerButton = findViewById(R.id.register_button);
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +44,23 @@ public class RegisterActivity extends AppCompatActivity {
                 {//start Activity
                     }
     }});
+
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.customview, viewGroup, false);
+                builder.setView(dialogView);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
+            }
+        });
+
+
 }
     public boolean checkDataEntered() {
         boolean flag = true;
@@ -77,11 +97,11 @@ public class RegisterActivity extends AppCompatActivity {
             flag = false;
         }//end if
 
-        if (isEmail(email.getText().toString()) == false) {
+        if (!isEmail(email.getText().toString())) {
             email.setError(getResources().getString(R.string.enterVEmail));
             flag = false;
         }//end if
-        if (confirmPassword() == false) {
+        if (!confirmPassword()) {
             password.setError(getResources().getString(R.string.mismatch));
             cpassword.setError(getResources().getString(R.string.mismatch));
             flag = false;
@@ -89,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         phoneToValidate=""+phoneE.getText().toString();
 
-        if(phoneToValidate.matches(MobilePattern)==false||!phoneToValidate.substring(0,2).equals("05") ) {
+        if(!phoneToValidate.matches(MobilePattern)||!phoneToValidate.substring(0,2).equals("05") ) {
             phoneE.setError("Please enter valid 10 digit phone number");//string
             flag=false;
         }
