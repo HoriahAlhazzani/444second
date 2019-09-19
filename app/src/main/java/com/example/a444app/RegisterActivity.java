@@ -49,13 +49,8 @@ public class RegisterActivity extends AppCompatActivity {
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                ViewGroup viewGroup = findViewById(android.R.id.content);
-                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.customview, viewGroup, false);
-                builder.setView(dialogView);
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-
+                ViewDialog alert = new ViewDialog();
+                alert.showDialog(RegisterActivity.this);
 
             }
         });

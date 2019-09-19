@@ -1,7 +1,9 @@
 package com.example.a444app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
-     TextView signup_txt ;
+     TextView signup_txt,fpass ;
     EditText password,id;
     Button loginButton;
 
@@ -43,6 +45,35 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        fpass = (TextView) findViewById(R.id.forgot_password_tv);
+
+        fpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TextView textView = new TextView(LoginActivity.this);
+                textView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                textView.setText(getResources().getString(R.string.forgot_password));
+                textView.setPadding(260, 30, 20, 30);
+                textView.setTextSize(20F);
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
+                final EditText input = new EditText(LoginActivity.this);
+                input.setHint(getResources().getString(R.string.login_email_hint));
+                alertDialog.setView(input);
+                alertDialog.setCustomTitle(textView);
+
+                // Setting Positive "Yes" Button
+                alertDialog.setPositiveButton(getResources().getString(R.string.send), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                alertDialog.show();
+            }
+        });
+
 
     }
     public boolean checkDataEntered(){
