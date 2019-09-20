@@ -1,5 +1,6 @@
 package com.example.a444app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -114,9 +116,17 @@ public class MainActivity extends AppCompatActivity
 //
         else if (id == R.id.nav_bye) {
             setTitle(R.string.menu_Logout);
+            new AlertDialog.Builder(this).setTitle("Logout").setMessage("Are you sure you want to log out?")
+                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                          //  logout();
+                            startActivity(new Intent(MainActivity.this,SplashActivity.class));
+
+                        }}).setNegativeButton("NO",null).show();}
+
 //            getSupportFragmentManager().beginTransaction().replace(R.id.container, new BecomeDriver()).commit();
 
-        }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
