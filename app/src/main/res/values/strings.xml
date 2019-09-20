@@ -24,4 +24,14 @@
     <string name="conditions">• Rentals are for a period of one (1) semester. \n• You must provide your own lock. \n• Rates are not pro-rated.  \n• The خَزْنَتِي is not responsible for any damage, theft or vandalism that may occur to the \nlocker and/or its contents. \n• Lockers must be cleaned out at the end of each rental period (by the last day of final exams). Any contents remaining in the locker\n at the end of the semester will be disposed of. \n• No stickers, decals or markings of any kind \n are permitted on, or in, any locker. Any \n evidence of such will result in forfeiture of the locker and a possible fine. \n• Locks illegally placed on a locker will be removed and the contents disposed of. \n• Lockers are the property of خَزْنَتِي and as \n such, خَزْنَتِي reserves the right to remove the lock and the contents of any locker.</string>
     <string name="ok">Ok</string>
     <string name="send">Send</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_MyLocker">My Locker</string>
+    <string name="menu_setting">Settings</string>
+    <string name="menu_Logout">Logout</string>
+    <string name="Goodbye">To Say Goodbye!</string>
+    <string name="nav_header_title">Atheer Alghannam</string>
+    <string name="nav_header_titleID">437200041</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 </resources>

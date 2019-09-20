@@ -11,15 +11,13 @@
 
     <ImageView
         android:id="@+id/Logo"
-        android:layout_width="374dp"
-        android:layout_height="530dp"
+        android:layout_width="334dp"
+        android:layout_height="490dp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         app:srcCompat="@drawable/logo"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="65dp" />
-
-
 
 
 </LinearLayout>

@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(checkDataEntered()){
-                    //   startActivity();
+                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 }
 
             }

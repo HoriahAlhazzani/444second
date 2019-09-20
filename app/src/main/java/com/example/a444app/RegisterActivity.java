@@ -3,6 +3,7 @@ package com.example.a444app;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -42,7 +43,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (checkDataEntered())
                 {//start Activity
-                    }
+                    startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+
+                }
     }});
 
 

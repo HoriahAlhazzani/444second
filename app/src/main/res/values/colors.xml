@@ -12,5 +12,7 @@
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
     <color name="bg">#f8fafb</color>
+    <color name="white">#fff</color>
+
 
 </resources>
