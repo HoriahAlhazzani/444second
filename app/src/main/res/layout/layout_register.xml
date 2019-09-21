@@ -76,7 +76,8 @@
                 android:drawableStart="@drawable/ic_mail_outline_black_24dp"
                 android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress"
-                android:maxLines="1" />
+                android:maxLength="28"
+                android:maxLines="1"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

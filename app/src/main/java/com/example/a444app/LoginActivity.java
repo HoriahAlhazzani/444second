@@ -90,10 +90,13 @@ public class LoginActivity extends AppCompatActivity {
             password.setError(getResources().getString(R.string.enterPassword));
             flag = false;
         }//end if
-        if(!id.getText().toString().substring(0,1).equals("4")||id.getText().toString().length()<9){
+
+        if (!isEmpty(id)) {
+
+            if(!id.getText().toString().substring(0,1).equals("4")||id.getText().toString().length()<9){
             id.setError(getResources().getString(R.string.entervId));//string
             flag=false;
-        }
+        }}
 
         return flag;
     }//end checkDataEntered

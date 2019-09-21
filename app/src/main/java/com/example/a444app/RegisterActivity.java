@@ -20,6 +20,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText fname, email, cpassword, password,phoneE,ID;
     Button registerButton;
     String MobilePattern = "[0-9]{10}";
+    String emailPattern = "[0-9]{9}";
+
     String phoneToValidate;
     CheckBox checkBox;
 
@@ -95,26 +97,34 @@ public class RegisterActivity extends AppCompatActivity {
             flag = false;
         }//end if
 
-        if (!isEmail(email.getText().toString())) {
-            email.setError(getResources().getString(R.string.enterVEmail));
-            flag = false;
-        }//end if
+        if (!isEmpty(email)) {
+            if (!isEmail(email.getText().toString())) {
+                email.setError(getResources().getString(R.string.enterVEmail));
+                flag = false;
+            }//end if
+        }
         if (!confirmPassword()) {
             password.setError(getResources().getString(R.string.mismatch));
             cpassword.setError(getResources().getString(R.string.mismatch));
             flag = false;
         }//end if
 
-        phoneToValidate=""+phoneE.getText().toString();
+        if (!isEmpty(phoneE)) {
+            phoneToValidate = "" + phoneE.getText().toString();
 
-        if(!phoneToValidate.matches(MobilePattern)||!phoneToValidate.substring(0,2).equals("05") ) {
-            phoneE.setError("Please enter valid 10 digit phone number");//string
-            flag=false;
+            if (!phoneToValidate.matches(MobilePattern) || !phoneToValidate.substring(0, 2).equals("05")) {
+                phoneE.setError("Please enter valid 10 digit phone number");//string
+                flag = false;
+            }
         }
 
-        if(!ID.getText().toString().substring(0,1).equals("4")||ID.getText().toString().length()<9){
-            ID.setError(getResources().getString(R.string.entervId));//string
-            flag=false;
+
+        if (!isEmpty(ID)) {
+
+            if (!ID.getText().toString().substring(0, 1).equals("4") || ID.getText().toString().length() < 9) {
+                ID.setError(getResources().getString(R.string.entervId));//string
+                flag = false;
+            }
         }
 
         if(!checkBox.isChecked()){
@@ -135,15 +145,21 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean isEmail(String email) {
         //check email is belong elm.sa
-        //  if (isElmEmail(email))
+         if (isUniversityEmail(email)){
+
+             String emailToValidate=email.substring(0,email.indexOf("@"));
+             return emailToValidate.matches(emailPattern);
+
+
+         }
         //check isEmail
-        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
-                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
-                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
-                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
-                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
-        //else return false;
+//        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+//                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+//                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+//                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+//                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+//                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+         else return false;
     }//end isEmail()
 
         boolean confirmPassword() {
@@ -152,7 +168,10 @@ public class RegisterActivity extends AppCompatActivity {
         return pass.equals(cpass);
     } // end confirmPassword
 
-
+    private boolean isUniversityEmail(String email) {
+        String domain = email.substring(email.indexOf("@") + 1);
+        return domain.equals("student.ksu.edu.sa");
+    }//end isElmEmail()
 
 
 }
