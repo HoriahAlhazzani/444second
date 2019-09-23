@@ -198,6 +198,10 @@ TextView login_text;
 //                flag = false;
 //            }//end if
 //        }
+        if(password.length()<6){
+            password.setError(getResources().getString(R.string.passLength));
+            cpassword.setError(getResources().getString(R.string.passLength));
+        }
         if (!confirmPassword()) {
             password.setError(getResources().getString(R.string.mismatch));
             cpassword.setError(getResources().getString(R.string.mismatch));
