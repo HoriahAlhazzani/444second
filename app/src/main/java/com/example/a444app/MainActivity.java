@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    private TextView txtName;
+    private TextView txtName,txtId;
     private ImageView imgUser;
 
     @Override
@@ -61,11 +61,15 @@ public class MainActivity extends AppCompatActivity
         }//end if
 //
         txtName = navigationView.getHeaderView(0).findViewById(R.id.navName);
+        txtId=navigationView.getHeaderView(0).findViewById(R.id.navID);
+
 //
 //
-//        if (!MySharedPrefence.getString(this, Constants.Keys.USER_FNAME, "").equals("") && !MySharedPrefence.getString(this, Constants.Keys.USER_LNAME, "").equals("")) {
-//            txtName.setText(MySharedPrefence.getString(this, Constants.Keys.USER_FNAME, "") + " " + MySharedPrefence.getString(this, Constants.Keys.USER_LNAME, ""));
-//        }//end if
+        if (!MySharedPrefrence.getString(this, Constants.Keys.USER_FNAME, "").equals(""))
+            txtName.setText(MySharedPrefrence.getString(this, Constants.Keys.USER_FNAME, ""));
+        if(!MySharedPrefrence.getString(this, Constants.Keys.USER_ID, "").equals(""))
+           txtId.setText(MySharedPrefrence.getString(this, Constants.Keys.USER_ID, ""));
+        //end if
 
 
     }
@@ -126,8 +130,7 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int which) {
                           //  logout();
                             FirebaseAuth.getInstance().signOut();
-                            finish();
-                            startActivity(new Intent(MainActivity.this,SplashActivity.class));
+                            logout();
 
                         }}).setNegativeButton("NO",null).show();}
 
@@ -144,8 +147,8 @@ public class MainActivity extends AppCompatActivity
 //    private void checkIsCreditCardSaved() {
 //
 //        //todo here move to menu drawer
-//        if (MySharedPrefence.getBoolean(this, Constants.Keys.SAVED_CREDIT_CARD, false) &&
-//                ( !MySharedPrefence.getString(this, Constants.Keys.CREDIT_CARD_NUMBER,"").equals("")) ){
+//        if (MySharedPrefrence.getBoolean(this, Constants.Keys.SAVED_CREDIT_CARD, false) &&
+//                ( !MySharedPrefrence.getString(this, Constants.Keys.CREDIT_CARD_NUMBER,"").equals("")) ){
 //
 ////            setTitle(R.string.add_credit_card);
 ////        getSupportFragmentManager().beginTransaction().replace(R.id.container, new AddCreditCardActivity()).commit();
@@ -165,5 +168,24 @@ public class MainActivity extends AppCompatActivity
 //
 //
 //    }//end checkIsLogin
+public  void logout(){
+    String applang = MySharedPrefrence.getString(this,Constants.Keys.APP_LANGUAGE,"en");
+    MySharedPrefrence.clearData(this);
+    MySharedPrefrence.putString(this,Constants.Keys.APP_LANGUAGE ,applang);
+    Intent intent = new Intent(this , LoginActivity.class);
+    intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK);
+    intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+
+
+
+    finish();
+
+
+
+    startActivity(intent);
+    //todo
+    //finish();
+
+}
 
 }

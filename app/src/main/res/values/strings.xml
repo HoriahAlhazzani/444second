@@ -33,7 +33,7 @@
     <string name="menu_Logout">Logout</string>
     <string name="Goodbye">To Say Goodbye!</string>
     <string name="nav_header_title">Atheer Alghannam</string>
-    <string name="nav_header_titleID">437200041</string>
+    <string name="nav_header_titleID">437200000</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="passLength">password should be 6 characters at least.</string>

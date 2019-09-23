@@ -34,10 +34,10 @@ public class SplashActivity extends AppCompatActivity  implements View.OnClickLi
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                finish();
+//                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+//                finish();
 
-              //  checkIsLogin();
+                checkIsLogin();
             }
         }, 3000); // end timer
         splashLayout = (LinearLayout) findViewById(R.id.splashlayout);
@@ -48,11 +48,25 @@ public class SplashActivity extends AppCompatActivity  implements View.OnClickLi
     @Override
     public void onClick(View view) {
 
-       // checkIsLogin();
+        checkIsLogin();
         //finish();
 
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
+//        startActivity(new Intent(this, LoginActivity.class));
+//        finish();
 
     }//end onClick
+
+
+    private void checkIsLogin() {
+
+        //todo here move to menu drawer
+        if (MySharedPrefrence.getBoolean(this, Constants.Keys.IS_LOGIN, false)) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();}// end if
+        else {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }//end else
+
+    }//end checkIsLogin
 }

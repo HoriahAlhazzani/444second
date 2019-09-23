@@ -72,9 +72,11 @@ public class LoginActivity extends AppCompatActivity {
                                     if (task.isSuccessful()){
                                         currentUser = mAuth.getCurrentUser();
                                         if(currentUser.isEmailVerified()){
-                                        finish();
-                                        startActivity(new Intent(getApplicationContext(),
-                                                MainActivity.class));}
+//                                        finish();
+//                                        startActivity(new Intent(getApplicationContext(),
+//                                                MainActivity.class));
+                                            executeLogin();
+                                        }
                                         else {
                                             Toast.makeText(LoginActivity.this, "please verify your email to login.",
                                                     Toast.LENGTH_SHORT).show();
@@ -187,6 +189,23 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 //        updateUI(currentUser);
     }
+    private void executeLogin() {
 
+        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
+        MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, id.getText().toString()+"@student.ksu.edu.sa");
+        MySharedPrefrence.putString(this,Constants.Keys.USER_ID,id.getText().toString());
 
-}
+//
+//        MySharedPrefrence.putString(this, Constants.Keys.PHONE, phoneE.getText().toString());
+//        MySharedPrefrence.putString(this, Constants.Keys.USER_FNAME, fname.getText().toString());
+//
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    }
+

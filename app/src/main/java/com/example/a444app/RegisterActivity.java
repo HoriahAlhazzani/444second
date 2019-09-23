@@ -103,6 +103,7 @@ TextView login_text;
 //                                                    finish();
 //                                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
+                                                        executeSignUp();
                                                 }
                                                 else {
 
@@ -275,34 +276,25 @@ TextView login_text;
 
 
 
+    private void executeSignUp() {
 
-//    private void updateUI(FirebaseUser user) {
-//        hideProgressDialog();
-//        if (user != null) {
-//            mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
-//                    user.getEmail(), user.isEmailVerified()));
-//            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-//
-//            findViewById(R.id.emailPasswordButtons).setVisibility(View.GONE);
-//            findViewById(R.id.emailPasswordFields).setVisibility(View.GONE);
-//            findViewById(R.id.signedInButtons).setVisibility(View.VISIBLE);
-//
-//            findViewById(R.id.verifyEmailButton).setEnabled(!user.isEmailVerified());
-//        } else {
-//            mStatusTextView.setText(R.string.signed_out);
-//            mDetailTextView.setText(null);
-//
-//            findViewById(R.id.emailPasswordButtons).setVisibility(View.VISIBLE);
-//            findViewById(R.id.emailPasswordFields).setVisibility(View.VISIBLE);
-//            findViewById(R.id.signedInButtons).setVisibility(View.GONE);
-//        }
-//    }
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-////        updateUI(currentUser);
-//    }
+//        MySharedPrefrence.putBoolean(this, Constants.Keys.DARK_MODE, false);
+        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
+        MySharedPrefrence.putString(this, Constants.Keys.USER_FNAME, fname.getText().toString());
+        //lname.getText().toString()
+        MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, ID.getText().toString()+"@student.ksu.edu.sa");
+        MySharedPrefrence.putString(this, Constants.Keys.PHONE, phoneE.getText().toString());
+        MySharedPrefrence.putString(this,Constants.Keys.USER_ID,ID.getText().toString());
+
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+//        startActivity(intent);
+//        finish();
+
+
+    } //end executeSignUp
 
 }
