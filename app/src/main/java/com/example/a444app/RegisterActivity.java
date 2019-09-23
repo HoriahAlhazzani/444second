@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
-    FirebaseUser user ;
+//    FirebaseUser user ;
 
     EditText fname, email, cpassword, password,phoneE,ID;
     Button registerButton;
@@ -95,16 +95,16 @@ public class RegisterActivity extends AppCompatActivity {
                             });
 
 //        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                    user= mAuth.getCurrentUser();
-                    user.sendEmailVerification()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.d(TAG, "Email sent.");
-                                    }
-                                }
-                            });
+//                    user= mAuth.getCurrentUser();
+//                    user.sendEmailVerification()
+//                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    if (task.isSuccessful()) {
+//                                        Log.d(TAG, "Email sent.");
+//                                    }
+//                                }
+//                            });
                 } else {
                     Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
