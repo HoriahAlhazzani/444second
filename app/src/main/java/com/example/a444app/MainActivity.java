@@ -22,9 +22,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
+
 
 
     private TextView txtName;
@@ -120,6 +125,7 @@ public class MainActivity extends AppCompatActivity
                     .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                           //  logout();
+                            FirebaseAuth.getInstance().signOut();
                             startActivity(new Intent(MainActivity.this,SplashActivity.class));
 
                         }}).setNegativeButton("NO",null).show();}

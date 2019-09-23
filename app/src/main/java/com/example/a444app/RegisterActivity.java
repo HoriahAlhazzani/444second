@@ -1,11 +1,13 @@
 package com.example.a444app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,25 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    private static final String TAG = "EmailPassword";
+
+
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+    // [END declare_auth]
+    FirebaseUser user ;
+
     EditText fname, email, cpassword, password,phoneE,ID;
     Button registerButton;
     String MobilePattern = "[0-9]{10}";
@@ -38,17 +56,62 @@ public class RegisterActivity extends AppCompatActivity {
         phoneE =  findViewById(R.id.phone);
         ID = findViewById(R.id.id);
         checkBox=findViewById(R.id.checkbox);
+
+
         registerButton = findViewById(R.id.register_button);
+
+// [START initialize_auth]
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (checkDataEntered())
-                {//start Activity
-                    startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                if (checkDataEntered()) {//start Activity
 
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                            .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    try {
+                                        //check if successful
+                                        if (task.isSuccessful()) {
+                                            //User is successfully registered and logged in
+                                            //start Profile Activity here
+                                            Toast.makeText(RegisterActivity.this, "registration successful",
+                                                    Toast.LENGTH_SHORT).show();
+                                            finish();
+                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                        }else{
+                                            Toast.makeText(RegisterActivity.this, "Couldn't register, try again",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+
+//        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                    user= mAuth.getCurrentUser();
+                    user.sendEmailVerification()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Log.d(TAG, "Email sent.");
+                                    }
+                                }
+                            });
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
-    }});
+            }
+        });
+
+
 
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -172,6 +235,33 @@ public class RegisterActivity extends AppCompatActivity {
         String domain = email.substring(email.indexOf("@") + 1);
         return domain.equals("student.ksu.edu.sa");
     }//end isElmEmail()
-
+//    private void updateUI(FirebaseUser user) {
+//        hideProgressDialog();
+//        if (user != null) {
+//            mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
+//                    user.getEmail(), user.isEmailVerified()));
+//            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+//
+//            findViewById(R.id.emailPasswordButtons).setVisibility(View.GONE);
+//            findViewById(R.id.emailPasswordFields).setVisibility(View.GONE);
+//            findViewById(R.id.signedInButtons).setVisibility(View.VISIBLE);
+//
+//            findViewById(R.id.verifyEmailButton).setEnabled(!user.isEmailVerified());
+//        } else {
+//            mStatusTextView.setText(R.string.signed_out);
+//            mDetailTextView.setText(null);
+//
+//            findViewById(R.id.emailPasswordButtons).setVisibility(View.VISIBLE);
+//            findViewById(R.id.emailPasswordFields).setVisibility(View.VISIBLE);
+//            findViewById(R.id.signedInButtons).setVisibility(View.GONE);
+//        }
+//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
+    }
 
 }

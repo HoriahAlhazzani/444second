@@ -1,5 +1,6 @@
 package com.example.a444app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,22 +8,35 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class LoginActivity extends AppCompatActivity {
-     TextView signup_txt,fpass ;
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private static final String TAG = "EmailPassword";
+
+
+    TextView signup_txt,fpass ;
     EditText password,id;
     Button loginButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         signup_txt= findViewById(R.id.signup_txt);
         signup_txt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,18 +47,40 @@ public class LoginActivity extends AppCompatActivity {
 
         password=findViewById(R.id.editTextPassword);
         id=findViewById(R.id.editTextID);
+
+
         loginButton=findViewById(R.id.loginButton);
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(checkDataEntered()){
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                }
+                if(checkDataEntered()) {
 
-            }
-        });
+                    String Email = id.getText().toString().trim() + "@student.ksu.edu.sa";
+                    String Password = password.getText().toString().trim();
+                    mAuth.signInWithEmailAndPassword(Email, Password)
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()){
+                                        currentUser = mAuth.getCurrentUser();
+                                        finish();
+                                        startActivity(new Intent(getApplicationContext(),
+                                                MainActivity.class));
+                                    }else {
+                                        Toast.makeText(LoginActivity.this, "couldn't login",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+
+                }}});
 
         fpass = (TextView) findViewById(R.id.forgot_password_tv);
 
@@ -105,4 +141,13 @@ public class LoginActivity extends AppCompatActivity {
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }//end isEmpty
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
+    }
+
+
 }
