@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword";
 
+TextView login_text;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -57,7 +59,14 @@ public class RegisterActivity extends AppCompatActivity {
         ID = findViewById(R.id.id);
         checkBox=findViewById(R.id.checkbox);
 
+        login_text=findViewById(R.id.login_text);
 
+        login_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+            }
+        });
         registerButton = findViewById(R.id.register_button);
 
 // [START initialize_auth]
@@ -107,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                                         }else{
-                                            Toast.makeText(RegisterActivity.this, "Couldn't register, try again"
+                                            Toast.makeText(RegisterActivity.this, "Couldn't register, try again "
                                                             +task.getException().getMessage(),
                                                     Toast.LENGTH_SHORT).show();
                                         }

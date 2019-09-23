@@ -80,7 +80,9 @@ public class LoginActivity extends AppCompatActivity {
                                                     Toast.LENGTH_SHORT).show();
                                         }
                                     }else {
-                                        Toast.makeText(LoginActivity.this, "couldn't login",
+                                        Toast.makeText(LoginActivity.this, "couldn't login "
+                                                +task.getException().getMessage(),
+
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
