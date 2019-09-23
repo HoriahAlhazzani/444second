@@ -65,20 +65,20 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/parent"-->
+<!--            android:layout_marginTop="@dimen/signup_text_margin_top">-->
 
-            <EditText
-                android:id="@+id/email"
-                style="@style/modifiedEditText"
-                android:backgroundTint="@color/colorPrimary"
-                android:drawableStart="@drawable/ic_mail_outline_black_24dp"
-                android:hint="@string/login_email_hint"
-                android:inputType="textEmailAddress"
-                android:maxLength="28"
-                android:maxLines="1"/>
-        </com.google.android.material.textfield.TextInputLayout>
+<!--            <EditText-->
+<!--                android:id="@+id/email"-->
+<!--                style="@style/modifiedEditText"-->
+<!--                android:backgroundTint="@color/colorPrimary"-->
+<!--                android:drawableStart="@drawable/ic_mail_outline_black_24dp"-->
+<!--                android:hint="@string/login_email_hint"-->
+<!--                android:inputType="textEmailAddress"-->
+<!--                android:maxLength="28"-->
+<!--                android:maxLines="1" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"

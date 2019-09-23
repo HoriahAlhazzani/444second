@@ -35,10 +35,10 @@ public class RegisterActivity extends AppCompatActivity {
     // [END declare_auth]
 //    FirebaseUser user ;
 
-    EditText fname, email, cpassword, password,phoneE,ID;
+    EditText fname, cpassword, password,phoneE,ID;//email
     Button registerButton;
     String MobilePattern = "[0-9]{10}";
-    String emailPattern = "[0-9]{9}";
+//    String emailPattern = "[0-9]{9}";
 
     String phoneToValidate;
     CheckBox checkBox;
@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         fname = findViewById(R.id.name);
-        email =findViewById(R.id.email);
+//        email =findViewById(R.id.email);
         password =  findViewById(R.id.password);
         cpassword = findViewById(R.id.cpassword);
         phoneE =  findViewById(R.id.phone);
@@ -71,7 +71,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (checkDataEntered()) {//start Activity
 
-                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                    String Email = ID.getText().toString().trim() + "@student.ksu.edu.sa";
+
+                    mAuth.createUserWithEmailAndPassword(Email, password.getText().toString())
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -154,11 +156,11 @@ public class RegisterActivity extends AppCompatActivity {
             flag = false;
         }//end if
 
-        if (isEmpty(email)) {
-
-            email.setError(getResources().getString(R.string.enterEmail));
-            flag = false;
-        }//end if
+//        if (isEmpty(email)) {
+//
+//            email.setError(getResources().getString(R.string.enterEmail));
+//            flag = false;
+//        }//end if
 
         if (isEmpty(phoneE)) {
 
@@ -180,13 +182,13 @@ public class RegisterActivity extends AppCompatActivity {
             cpassword.setError(getResources().getString(R.string.entercPassword));
             flag = false;
         }//end if
-
-        if (!isEmpty(email)) {
-            if (!isEmail(email.getText().toString())) {
-                email.setError(getResources().getString(R.string.enterVEmail));
-                flag = false;
-            }//end if
-        }
+//
+//        if (!isEmpty(email)) {
+//            if (!isEmail(email.getText().toString())) {
+//                email.setError(getResources().getString(R.string.enterVEmail));
+//                flag = false;
+//            }//end if
+//        }
         if (!confirmPassword()) {
             password.setError(getResources().getString(R.string.mismatch));
             cpassword.setError(getResources().getString(R.string.mismatch));
@@ -227,15 +229,15 @@ public class RegisterActivity extends AppCompatActivity {
         return TextUtils.isEmpty(str);
     }//end isEmpty
 
-    private boolean isEmail(String email) {
-        //check email is belong elm.sa
-         if (isUniversityEmail(email)){
-
-             String emailToValidate=email.substring(0,email.indexOf("@"));
-             return emailToValidate.matches(emailPattern);
-
-
-         }
+//    private boolean isEmail(String email) {
+//        //check email is belong elm.sa
+//         if (isUniversityEmail(email)){
+//
+//             String emailToValidate=email.substring(0,email.indexOf("@"));
+//             return emailToValidate.matches(emailPattern);
+//
+//
+//         }
         //check isEmail
 //        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
 //                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
@@ -243,19 +245,24 @@ public class RegisterActivity extends AppCompatActivity {
 //                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
 //                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
 //                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
-         else return false;
-    }//end isEmail()
+//         else return false;
+//    }//end isEmail()
 
         boolean confirmPassword() {
         String pass = password.getText().toString();
         String cpass = cpassword.getText().toString();
         return pass.equals(cpass);
     } // end confirmPassword
+//
 
-    private boolean isUniversityEmail(String email) {
-        String domain = email.substring(email.indexOf("@") + 1);
-        return domain.equals("student.ksu.edu.sa");
-    }//end isElmEmail()
+//    private boolean isUniversityEmail(String email) {
+//        String domain = email.substring(email.indexOf("@") + 1);
+//        return domain.equals("student.ksu.edu.sa");
+//    }//end isElmEmail()
+
+
+
+
 //    private void updateUI(FirebaseUser user) {
 //        hideProgressDialog();
 //        if (user != null) {

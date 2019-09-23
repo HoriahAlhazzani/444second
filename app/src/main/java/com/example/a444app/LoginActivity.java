@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -69,9 +71,14 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
                                         currentUser = mAuth.getCurrentUser();
+                                        if(currentUser.isEmailVerified()){
                                         finish();
                                         startActivity(new Intent(getApplicationContext(),
-                                                MainActivity.class));
+                                                MainActivity.class));}
+                                        else {
+                                            Toast.makeText(LoginActivity.this, "please verify your email to login.",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
                                     }else {
                                         Toast.makeText(LoginActivity.this, "couldn't login",
                                                 Toast.LENGTH_SHORT).show();
@@ -96,7 +103,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
                 final EditText input = new EditText(LoginActivity.this);
-                input.setHint(getResources().getString(R.string.login_email_hint));
+
+                int maxLength = 9;
+                InputFilter[] FilterArray = new InputFilter[1];
+                FilterArray[0] = new InputFilter.LengthFilter(maxLength);
+
+                input.setHint(getResources().getString(R.string.login_id_hint));
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                input.setFilters(FilterArray);
                 alertDialog.setView(input);
                 alertDialog.setCustomTitle(textView);
 
@@ -105,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
 
-                        mAuth.sendPasswordResetEmail(input.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        mAuth.sendPasswordResetEmail(input.getText().toString()+ "@student.ksu.edu.sa").addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
