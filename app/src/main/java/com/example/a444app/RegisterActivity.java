@@ -80,12 +80,33 @@ public class RegisterActivity extends AppCompatActivity {
                                         if (task.isSuccessful()) {
                                             //User is successfully registered and logged in
                                             //start Profile Activity here
-                                            Toast.makeText(RegisterActivity.this, "registration successful",
-                                                    Toast.LENGTH_SHORT).show();
-                                            finish();
-                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                                            mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+                                                    if(task.isSuccessful()){
+                                                    Toast.makeText(RegisterActivity.this,
+                                                            "registration successful, please check your email for verification.",
+                                                            Toast.LENGTH_SHORT).show();
+//                                                    finish();
+//                                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                                                }
+                                                else {
+
+                                                        Toast.makeText(RegisterActivity.this,
+                                                                task.getException().getMessage(),
+                                                                Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+
+
+
                                         }else{
-                                            Toast.makeText(RegisterActivity.this, "Couldn't register, try again",
+                                            Toast.makeText(RegisterActivity.this, "Couldn't register, try again"
+                                                            +task.getException().getMessage(),
                                                     Toast.LENGTH_SHORT).show();
                                         }
                                     }catch (Exception e){
@@ -256,12 +277,12 @@ public class RegisterActivity extends AppCompatActivity {
 //            findViewById(R.id.signedInButtons).setVisibility(View.GONE);
 //        }
 //    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        updateUI(currentUser);
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+////        updateUI(currentUser);
+//    }
 
 }

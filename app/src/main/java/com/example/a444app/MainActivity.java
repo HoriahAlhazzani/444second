@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity
                         public void onClick(DialogInterface dialog, int which) {
                           //  logout();
                             FirebaseAuth.getInstance().signOut();
+                            finish();
                             startActivity(new Intent(MainActivity.this,SplashActivity.class));
 
                         }}).setNegativeButton("NO",null).show();}

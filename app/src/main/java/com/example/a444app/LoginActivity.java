@@ -103,6 +103,29 @@ public class LoginActivity extends AppCompatActivity {
                 // Setting Positive "Yes" Button
                 alertDialog.setPositiveButton(getResources().getString(R.string.send), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+
+
+                        mAuth.sendPasswordResetEmail(input.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if(task.isSuccessful()){
+                                    Toast.makeText(LoginActivity.this,
+                                            "please check your email for reset your password.",
+                                            Toast.LENGTH_SHORT).show();
+//                                                    finish();
+//                                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                                }
+                                else {
+
+                                    Toast.makeText(LoginActivity.this,
+                                            task.getException().getMessage(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
                     }
                 });
 
