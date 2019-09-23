@@ -37,4 +37,9 @@
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="passLength">password should be 6 characters at least.</string>
+    <string name="plz">Please Wait..</string>
+    <string name="language">Language</string>
+    <string name="notify">Notifications</string>
+    <string name="language1">Arabic</string>
+    <string name="language2">English</string>
 </resources>

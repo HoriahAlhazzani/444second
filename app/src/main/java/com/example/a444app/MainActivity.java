@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 //import com.bumptech.glide.Glide;
 //import com.bumptech.glide.request.RequestOptions;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
+    HomeFragment homeFragment;
 
 
     private TextView txtName,txtId;
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity
         txtId=navigationView.getHeaderView(0).findViewById(R.id.navID);
 
 //
+        homeFragment = new HomeFragment();
+        replaceFrag(homeFragment);
 //
         if (!MySharedPrefrence.getString(this, Constants.Keys.USER_FNAME, "").equals(""))
             txtName.setText(MySharedPrefrence.getString(this, Constants.Keys.USER_FNAME, ""));
@@ -93,6 +97,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             setTitle(R.string.menu_home);
+            replaceFrag(homeFragment);
             //  getSupportFragmentManager().beginTransaction().replace(R.id.container, new map()).commit();
 //            startActivity(new Intent(MainActivity.this,MapActivity.class));
 
@@ -102,11 +107,16 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_profile) {
             setTitle(R.string.menu_profile);
+
+            Profile profile = new Profile();
+            replaceFrag(profile);
 //            History history = new History();
 //            getSupportFragmentManager().beginTransaction().replace(R.id.container, history).commit();
 
         } else if (id == R.id.nav_MyLocker) {
             setTitle(R.string.menu_MyLocker);
+            MyLocker myLocker = new MyLocker();
+            replaceFrag(myLocker);
 //            checkIsCreditCardSaved();
 
 //        } else if (id == R.id.nav_Offers) {
@@ -114,7 +124,9 @@ public class MainActivity extends AppCompatActivity
 ////            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Offers()).commit();
 
         } else if (id == R.id.nav_setting) {
-            setTitle(R.string.menu_setting);}
+            setTitle(R.string.menu_setting);
+            Settings settings = new Settings();
+            replaceFrag(settings);}
 //            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Settings()).commit();}
 
 //        } else if (id == R.id.nav_Contact_us) {
@@ -187,5 +199,10 @@ public  void logout(){
     //finish();
 
 }
+    private void replaceFrag(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+
+
+    } //end replaceFrag
 
 }

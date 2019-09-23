@@ -194,6 +194,7 @@ public class LoginActivity extends AppCompatActivity {
         MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
         MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, id.getText().toString()+"@student.ksu.edu.sa");
         MySharedPrefrence.putString(this,Constants.Keys.USER_ID,id.getText().toString());
+        MySharedPrefrence.putString(this, Constants.Keys.USER_PASS, password.getText().toString());
 
 //
 //        MySharedPrefrence.putString(this, Constants.Keys.PHONE, phoneE.getText().toString());

@@ -20,7 +20,7 @@ public class Constants {
 
 
         String USER_EMAIL = "user_email";
-        String USER_PIN = "user_pass";
+        String USER_PASS = "user_pass";
 
         String QUESTION ="question" ;
 

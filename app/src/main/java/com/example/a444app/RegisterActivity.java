@@ -285,6 +285,8 @@ TextView login_text;
         MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, ID.getText().toString()+"@student.ksu.edu.sa");
         MySharedPrefrence.putString(this, Constants.Keys.PHONE, phoneE.getText().toString());
         MySharedPrefrence.putString(this,Constants.Keys.USER_ID,ID.getText().toString());
+        MySharedPrefrence.putString(this, Constants.Keys.USER_PASS, password.getText().toString());
+
 
 
         Intent intent = new Intent(this, MainActivity.class);
