@@ -105,6 +105,14 @@
             android:text="@string/save" />
 
 
-
+        <TextView
+            android:id="@+id/resetPass_text"
+            style="@style/parent"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:onClick="viewRegisterClicked"
+            android:text="@string/reset_password"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -10,16 +10,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class Profile extends Fragment {
 
     EditText name, email, password,id;
-    ImageView imgUser;
+    TextView resetPass_text;
     private ProgressDialog progressDialog;
+    FirebaseAuth auth ;
+
     private final String LOG = Profile.class.getSimpleName();
 
     @Override
@@ -27,13 +34,27 @@ public class Profile extends Fragment {
 
 
         View view = inflater.inflate(R.layout.profilex, container, false);
-
+        auth = FirebaseAuth.getInstance();
         name = view.findViewById(R.id.pname_signup);
         email = view.findViewById(R.id.pemail_signup);
         password = view.findViewById(R.id.ppw_signup);
         id=view.findViewById(R.id.id);
 //        imgUser = view.findViewById(R.id.personalImage);
-
+        resetPass_text=view.findViewById(R.id.resetPass_text);
+        resetPass_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.sendPasswordResetEmail(MySharedPrefrence.getString(getContext(), Constants.Keys.USER_EMAIL, ""))
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(LOG, "Email sent.");
+                                }
+                            }
+                        });
+            }
+        });
         fillData();
 //        executeProfileApiRequest();
         return view;
