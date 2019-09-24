@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 
 public class Profile extends Fragment {
 
-    EditText name, email, password;
+    EditText name, email, password,id;
     ImageView imgUser;
     private ProgressDialog progressDialog;
     private final String LOG = Profile.class.getSimpleName();
@@ -31,7 +31,8 @@ public class Profile extends Fragment {
         name = view.findViewById(R.id.pname_signup);
         email = view.findViewById(R.id.pemail_signup);
         password = view.findViewById(R.id.ppw_signup);
-        imgUser = view.findViewById(R.id.personalImage);
+        id=view.findViewById(R.id.id);
+//        imgUser = view.findViewById(R.id.personalImage);
 
         fillData();
 //        executeProfileApiRequest();
@@ -40,7 +41,7 @@ public class Profile extends Fragment {
 
     private void fillData() {
         //fill username
-        if (!MySharedPrefrence.getString(getContext(), Constants.Keys.USER_NAME, "").equals("")) {
+        if (!MySharedPrefrence.getString(getContext(), Constants.Keys.USER_FNAME, "").equals("")) {
             name.setText(MySharedPrefrence.getString(getContext(), Constants.Keys.USER_NAME, ""));
             name.setEnabled(false);
         }//end if
@@ -55,10 +56,17 @@ public class Profile extends Fragment {
             password.setEnabled(false);
 
 
+
 //            Glide.with(this).load(MySharedPrefrence.getString(getContext(),Constants.Keys.USER_IMG,"")) .apply(RequestOptions.circleCropTransform()).into(imgUser);
 
 
         }//end if
+        if (!MySharedPrefrence.getString(getContext(), Constants.Keys.USER_ID, "").equals("")) {
+            id.setText(MySharedPrefrence.getString(getContext(), Constants.Keys.USER_ID, ""));
+            id.setEnabled(false);
+        }//end if
+
+
     }//end fillData()
 
 

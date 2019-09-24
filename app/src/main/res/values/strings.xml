@@ -42,4 +42,5 @@
     <string name="notify">Notifications</string>
     <string name="language1">Arabic</string>
     <string name="language2">English</string>
+    <string name="save">Save</string>
 </resources>
