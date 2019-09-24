@@ -23,6 +23,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Pattern;
 
@@ -30,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword";
 
+    private DatabaseReference databaseReference;
 TextView login_text;
 
     // [START declare_auth]
@@ -69,6 +72,8 @@ TextView login_text;
         });
         registerButton = findViewById(R.id.register_button);
 
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+
 // [START initialize_auth]
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -104,6 +109,7 @@ TextView login_text;
 //                                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                                                         executeSignUp();
+                                                        saveUserInfoDatabase();
                                                 }
                                                 else {
 
@@ -298,5 +304,20 @@ TextView login_text;
 
 
     } //end executeSignUp
+
+    private void saveUserInfoDatabase(){
+
+         String unamer=fname.getText().toString().trim();
+         String uemailr=ID.getText().toString()+"@student.ksu.edu.sa".trim();
+         String uidr=ID.getText().toString().trim();
+         String upasswordr=password.getText().toString().trim();
+         String uphoner=phoneE.getText().toString().trim();
+
+         UserInformation userInformation=new UserInformation(unamer,uemailr,uidr,upasswordr,uphoner);
+         FirebaseUser user=mAuth.getCurrentUser();
+         databaseReference.child(user.getUid()).setValue(userInformation);
+
+
+    }
 
 }
