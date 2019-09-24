@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +23,15 @@ import androidx.fragment.app.Fragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Profile extends Fragment {
@@ -34,6 +44,13 @@ public class Profile extends Fragment {
     String MobilePattern = "[0-9]{10}";
     Button saveChanges_button;
 
+     FirebaseDatabase database;
+    DatabaseReference ref;
+    FirebaseUser user;
+    String uid;
+//    ArrayAdapter<String> adapter;
+//    List<String> itemlist;
+
 
     private final String LOG = Profile.class.getSimpleName();
 
@@ -42,6 +59,56 @@ public class Profile extends Fragment {
 
 
         View view = inflater.inflate(R.layout.profilex, container, false);
+
+//        database = FirebaseDatabase.getInstance();
+
+        user=FirebaseAuth.getInstance().getCurrentUser();
+        uid=user.getUid();
+//        itemlist= new ArrayList<>();
+
+        ref = FirebaseDatabase.getInstance().getReference();
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+//                itemlist.clear();
+
+                 String uname=dataSnapshot.child(uid).child("uname").getValue(String.class);
+                 String uemail=dataSnapshot.child(uid).child("uemail").getValue(String.class);
+                 String uiid=dataSnapshot.child(uid).child("uid").getValue(String.class);
+                 String upassword=dataSnapshot.child(uid).child("upassword").getValue(String.class);
+                 String uphone=dataSnapshot.child(uid).child("uphone").getValue(String.class);
+
+                MySharedPrefrence.putString(getContext(), Constants.Keys.USER_FNAME, uname);
+                //lname.getText().toString()
+                MySharedPrefrence.putString(getContext(), Constants.Keys.USER_EMAIL, uemail);
+                MySharedPrefrence.putString(getContext(), Constants.Keys.PHONE, uphone);
+                MySharedPrefrence.putString(getContext(),Constants.Keys.USER_ID,uiid);
+                MySharedPrefrence.putString(getContext(), Constants.Keys.USER_PASS, upassword);
+
+//                 itemlist.add(uname);
+//                itemlist.add(uemail);
+//                itemlist.add(uiid);
+//                itemlist.add(upassword);
+//                itemlist.add(uphone);
+//
+//                adapter=new ArrayAdapter<>(Profile.this,android.R.layout)
+
+//
+//                String value = dataSnapshot.getValue(String.class);
+//                Log.d(LOG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(LOG, "Failed to read value.", error.toException());
+            }
+        });
+
+
         auth = FirebaseAuth.getInstance();
         name = view.findViewById(R.id.pname_signup);
         email = view.findViewById(R.id.pemail_signup);
@@ -72,12 +139,36 @@ public class Profile extends Fragment {
         saveChanges_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkDataEntered())
+                if(checkDataEntered()){
+
+
+
+//                    database = FirebaseDatabase.getInstance();
+                    ref.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            dataSnapshot.getRef().child("uname").setValue(name.getText().toString().trim());
+                            dataSnapshot.getRef().child("uphone").setValue(phoneE.getText().toString().trim());
+
+//                            dialog.dismiss();
+
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Log.d("User", databaseError.getMessage());
+                        }
+                    });
+
+
+
                     saveChanges();
                 Toast.makeText(getActivity(),getResources().getString(R.string.changes_saved)
                         ,
                         Toast.LENGTH_SHORT).show();
 startActivity(new Intent(getActivity(),MainActivity.class));
+
+                }
             }
         });
 
@@ -165,5 +256,24 @@ startActivity(new Intent(getActivity(),MainActivity.class));
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }//end isEmpty
+
+//    void readFromDatabase(){
+//        // Read from the database
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                // This method is called once with the initial value and again
+//                // whenever data at this location is updated.
+//                String value = dataSnapshot.getValue(String.class);
+//                Log.d(TAG, "Value is: " + value);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError error) {
+//                // Failed to read value
+//                Log.w(TAG, "Failed to read value.", error.toException());
+//            }
+//        });
+//    }
 
 }

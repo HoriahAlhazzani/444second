@@ -22,6 +22,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -30,15 +35,24 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private static final String TAG = "EmailPassword";
 
+    private final String LOG = LoginActivity.class.getSimpleName();
 
     TextView signup_txt,fpass ;
     EditText password,id;
     Button loginButton;
 
+    DatabaseReference ref;
+    FirebaseUser user;
+    String uid;
+//    ArrayAdapter<Strin
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
         signup_txt= findViewById(R.id.signup_txt);
         signup_txt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +89,60 @@ public class LoginActivity extends AppCompatActivity {
 //                                        finish();
 //                                        startActivity(new Intent(getApplicationContext(),
 //                                                MainActivity.class));
+
+                                            user=FirebaseAuth.getInstance().getCurrentUser();
+                                            uid=user.getUid();
+
+                                            ref = FirebaseDatabase.getInstance().getReference();
+
+
+                                            ref.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                                    dataSnapshot.getRef().child("upassword").setValue(password.getText().toString().trim());
+
+//                            dialog.dismiss();
+
+                                                }
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+                                                    Log.d("User", databaseError.getMessage());
+                                                }
+                                            });
+
+
+
+                                            ref.addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    // This method is called once with the initial value and again
+                                                    // whenever data at this location is updated.
+
+                                                    String uname=dataSnapshot.child(uid).child("uname").getValue(String.class);
+                                                    String uemail=dataSnapshot.child(uid).child("uemail").getValue(String.class);
+                                                    String uiid=dataSnapshot.child(uid).child("uid").getValue(String.class);
+                                                    String upassword=dataSnapshot.child(uid).child("upassword").getValue(String.class);
+                                                    String uphone=dataSnapshot.child(uid).child("uphone").getValue(String.class);
+
+                                                    MySharedPrefrence.putString(LoginActivity.this, Constants.Keys.USER_FNAME, uname);
+                                                    //lname.getText().toString()
+                                                    MySharedPrefrence.putString(LoginActivity.this, Constants.Keys.USER_EMAIL, uemail);
+                                                    MySharedPrefrence.putString(LoginActivity.this, Constants.Keys.PHONE, uphone);
+                                                    MySharedPrefrence.putString(LoginActivity.this,Constants.Keys.USER_ID,uiid);
+                                                    MySharedPrefrence.putString(LoginActivity.this, Constants.Keys.USER_PASS, upassword);
+
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError error) {
+                                                    // Failed to read value
+                                                    Log.w(LOG, "Failed to read value.", error.toException());
+                                                }
+                                            });
+
+
                                             executeLogin();
                                         }
                                         else {
@@ -191,10 +259,10 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void executeLogin() {
 
-        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
-        MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, id.getText().toString()+"@student.ksu.edu.sa");
-        MySharedPrefrence.putString(this,Constants.Keys.USER_ID,id.getText().toString());
-        MySharedPrefrence.putString(this, Constants.Keys.USER_PASS, password.getText().toString());
+//        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
+//        MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, id.getText().toString()+"@student.ksu.edu.sa");
+//        MySharedPrefrence.putString(this,Constants.Keys.USER_ID,id.getText().toString());
+//        MySharedPrefrence.putString(this, Constants.Keys.USER_PASS, password.getText().toString());
 
 //
 //        MySharedPrefrence.putString(this, Constants.Keys.PHONE, phoneE.getText().toString());
