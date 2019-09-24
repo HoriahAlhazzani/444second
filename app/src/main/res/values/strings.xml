@@ -44,4 +44,8 @@
     <string name="language2">English</string>
     <string name="save">Save</string>
     <string name="reset_password">Reset Password?</string>
+    <string name="phone_error">Please enter valid 10 digit phone number</string>
+    <string name="checkBox_error">You have to agree to complete Registeration!</string>
+    <string name="complete_Registeration">registration successful, please check your email for verification.</string>
+    <string name="changes_saved">Changes are saved successfully!</string>
 </resources>

@@ -97,8 +97,8 @@ TextView login_text;
                                                 public void onComplete(@NonNull Task<Void> task) {
 
                                                     if(task.isSuccessful()){
-                                                    Toast.makeText(RegisterActivity.this,
-                                                            "registration successful, please check your email for verification.",
+                                                    Toast.makeText(RegisterActivity.this,getResources().getString(R.string.complete_Registeration)
+                                                            ,
                                                             Toast.LENGTH_SHORT).show();
 //                                                    finish();
 //                                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -213,7 +213,7 @@ TextView login_text;
             phoneToValidate = "" + phoneE.getText().toString();
 
             if (!phoneToValidate.matches(MobilePattern) || !phoneToValidate.substring(0, 2).equals("05")) {
-                phoneE.setError("Please enter valid 10 digit phone number");//string
+                phoneE.setError(getResources().getString(R.string.phone_error));//string
                 flag = false;
             }
         }
@@ -229,7 +229,7 @@ TextView login_text;
 
         if(!checkBox.isChecked()){
             flag=false;
-            Toast.makeText(RegisterActivity.this, "You have to agree to complete Registeration!",
+            Toast.makeText(RegisterActivity.this, getResources().getString(R.string.checkBox_error),
                     Toast.LENGTH_LONG).show();
         }
 

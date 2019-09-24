@@ -48,7 +48,7 @@ android:background="@color/bg">
                 style="@style/headerText"
                 android:layout_gravity="center"
                 android:text="@string/app_name"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="15dp"/>
             <include
                 layout="@layout/profile_fragment_layout"/>
 
