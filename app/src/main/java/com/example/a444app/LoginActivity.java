@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                                             executeLogin();
                                         }
                                         else {
-                                            Toast.makeText(LoginActivity.this, "please verify your email to login.",
+                                            Toast.makeText(LoginActivity.this, "please verify your student email to login.",
                                                     Toast.LENGTH_SHORT).show();
                                         }
                                     }else {
@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if(task.isSuccessful()){
                                     Toast.makeText(LoginActivity.this,
-                                            "please check your email for reset your password.",
+                                            "please check your student mail for reset your password.",
                                             Toast.LENGTH_SHORT).show();
 //                                                    finish();
 //                                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
