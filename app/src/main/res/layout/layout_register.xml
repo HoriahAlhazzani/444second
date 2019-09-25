@@ -31,6 +31,7 @@
                 android:backgroundTint="@color/colorPrimary"
                 android:drawableStart="@drawable/ic_perm_identity_black_24dp"
                 android:hint="@string/name"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:inputType="textPersonName"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
