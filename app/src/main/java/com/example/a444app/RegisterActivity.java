@@ -110,6 +110,7 @@ TextView login_text;
 
                                                         executeSignUp();
                                                         saveUserInfoDatabase();
+                                                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                                                 }
                                                 else {
 
