@@ -39,7 +39,7 @@ public class Profile extends Fragment {
     EditText name, email, password,id,phoneE;
     TextView resetPass_text;
     private ProgressDialog progressDialog;
-    FirebaseAuth auth ;
+//    FirebaseAuth auth ;
     String phoneToValidate;
     String MobilePattern = "[0-9]{10}";
     Button saveChanges_button;
@@ -109,7 +109,7 @@ public class Profile extends Fragment {
         });
 
 
-        auth = FirebaseAuth.getInstance();
+//        auth = FirebaseAuth.getInstance();
         name = view.findViewById(R.id.pname_signup);
         email = view.findViewById(R.id.pemail_signup);
         password = view.findViewById(R.id.ppw_signup);
@@ -121,19 +121,21 @@ public class Profile extends Fragment {
         resetPass_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                auth.sendPasswordResetEmail(MySharedPrefrence.getString(getContext(), Constants.Keys.USER_EMAIL, ""))
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getActivity(),"Check your Email to reset your password."
-                                            ,
-                                            Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getContext(),LoginActivity.class));
-                                    Log.d(LOG, "Check your Email to reset your password.");
-                                }
-                            }
-                        });
+//                auth.sendPasswordResetEmail(MySharedPrefrence.getString(getContext(), Constants.Keys.USER_EMAIL, ""))
+//                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<Void> task) {
+//                                if (task.isSuccessful()) {
+//                                    Toast.makeText(getActivity(),"Check your Email to reset your password."
+//                                            ,
+//                                            Toast.LENGTH_SHORT).show();
+//                                    startActivity(new Intent(getContext(),LoginActivity.class));
+//                                    Log.d(LOG, "Check your Email to reset your password.");
+//                                }
+//                            }
+//                        });
+                                                    startActivity(new Intent(getContext(),ForgotPasswordActivity.class));
+
             }
         });
 

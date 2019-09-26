@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                        startActivity(new Intent(getApplicationContext(),
 //                                                MainActivity.class));
 
+                                            /// forgot password need to this option to change password in database
                                             user=FirebaseAuth.getInstance().getCurrentUser();
                                             uid=user.getUid();
 
@@ -254,12 +255,12 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
 //        updateUI(currentUser);
     }
     private void executeLogin() {
 
-//        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
+        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
 //        MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, id.getText().toString()+"@student.ksu.edu.sa");
 //        MySharedPrefrence.putString(this,Constants.Keys.USER_ID,id.getText().toString());
 //        MySharedPrefrence.putString(this, Constants.Keys.USER_PASS, password.getText().toString());

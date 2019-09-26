@@ -9,11 +9,13 @@
 
     <string name="Logout">Logout</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="reset_password1">Reset Password</string>
+
     <string name="login_email_hint">Student Email</string>
     <string name="login_Confpassword_hint"> Confirm Password</string>
     <string name="agreement">"Agree to Out Terms &amp; Conditions"</string>
     <string name="enterId">Enter ID</string>
-    <string name="enterPassword">Enter Password</string>
+    <string name="enterPassword">Pleasse Enter Password</string>
     <string name="entercPassword">Enter Confirm Password</string>
     <string name="enterfName">Enter name</string>
     <string name="enterEmail">Enter Email</string>
@@ -48,4 +50,8 @@
     <string name="checkBox_error">You have to agree to complete Registeration!</string>
     <string name="complete_Registeration">registration successful, please check your student mail for verification.</string>
     <string name="changes_saved">Changes are saved successfully!</string>
+    <string name="current_password_hint">Current password</string>
+    <string name="new_password_hint">New password</string>
+    <string name="confirm_new_password_hint">Confirm new password</string>
+    <string name="incorrectPassword">The password you entered was incorrect.</string>
 </resources>
