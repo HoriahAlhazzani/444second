@@ -129,6 +129,7 @@ public class Profile extends Fragment {
                                     Toast.makeText(getActivity(),"Check your Email to reset your password."
                                             ,
                                             Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getContext(),LoginActivity.class));
                                     Log.d(LOG, "Check your Email to reset your password.");
                                 }
                             }

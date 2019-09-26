@@ -13,7 +13,9 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SplashActivity extends AppCompatActivity  implements View.OnClickListener{
+public class SplashActivity extends AppCompatActivity
+//        implements View.OnClickListener
+{
 
     LinearLayout splashLayout;
 
@@ -40,21 +42,21 @@ public class SplashActivity extends AppCompatActivity  implements View.OnClickLi
                 checkIsLogin();
             }
         }, 3000); // end timer
-        splashLayout = (LinearLayout) findViewById(R.id.splashlayout);
-        splashLayout.setOnClickListener(this);
+//        splashLayout = (LinearLayout) findViewById(R.id.splashlayout);
+//        splashLayout.setOnClickListener(this);
 
     }
 
-    @Override
-    public void onClick(View view) {
-
-        checkIsLogin();
-        //finish();
-
-//        startActivity(new Intent(this, LoginActivity.class));
-//        finish();
-
-    }//end onClick
+//    @Override
+//    public void onClick(View view) {
+//
+//        checkIsLogin();
+//        //finish();
+//
+////        startActivity(new Intent(this, LoginActivity.class));
+////        finish();
+//
+//    }//end onClick
 
 
     private void checkIsLogin() {

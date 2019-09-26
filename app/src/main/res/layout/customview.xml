@@ -1,5 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/parent">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
 <RelativeLayout
     android:orientation="vertical"
     android:layout_width="400dp"
@@ -40,5 +43,6 @@
         android:layout_marginTop="22dp"
         android:src="@android:drawable/ic_menu_close_clear_cancel" />
 </RelativeLayout>
+    </HorizontalScrollView>
 
 </ScrollView>
