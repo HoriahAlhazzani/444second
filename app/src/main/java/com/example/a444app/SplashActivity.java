@@ -63,9 +63,16 @@ public class SplashActivity extends AppCompatActivity
 
         //todo here move to menu drawer
         if (MySharedPrefrence.getBoolean(this, Constants.Keys.IS_LOGIN, false)) {
+            if (MySharedPrefrence.getString(this, Constants.Keys.USER_ID, "").equals("400000000"))
+                startActivity(new Intent(this, Main2Activity.class));
+
+            else
             startActivity(new Intent(this, MainActivity.class));
-            finish();}// end if
+
+            finish();
+        }// end if
         else {
+
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }//end else

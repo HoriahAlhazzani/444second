@@ -32,7 +32,7 @@
                 android:id="@+id/editTextID"
                 style="@style/modifiedEditText"
                 android:backgroundTint="@color/colorPrimary"
-                android:hint="@string/login_id_hint"
+                android:hint="@string/login_justid_hint"
                 android:inputType="number"
                 android:maxLines="1"
                 android:maxLength="9"

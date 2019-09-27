@@ -35,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private static final String TAG = "EmailPassword";
 
+    Intent intent;
+
     private final String LOG = LoginActivity.class.getSimpleName();
 
     TextView signup_txt,fpass ;
@@ -43,7 +45,10 @@ public class LoginActivity extends AppCompatActivity {
 
     DatabaseReference ref;
     FirebaseUser user;
+    String Email;
     String uid;
+    String email;
+
 //    ArrayAdapter<Strin
 
     @Override
@@ -77,7 +82,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(checkDataEntered()) {
 
-                    String Email = id.getText().toString().trim() + "@student.ksu.edu.sa";
+                    if(id.getText().toString().equals("400000000")){
+                         Email = "athalghannam@gmail.com";
+                    }
+                    else{
+                     Email = id.getText().toString().trim() + "@student.ksu.edu.sa";}
                     String Password = password.getText().toString().trim();
                     mAuth.signInWithEmailAndPassword(Email, Password)
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -181,7 +190,7 @@ public class LoginActivity extends AppCompatActivity {
                 InputFilter[] FilterArray = new InputFilter[1];
                 FilterArray[0] = new InputFilter.LengthFilter(maxLength);
 
-                input.setHint(getResources().getString(R.string.login_id_hint));
+                input.setHint(getResources().getString(R.string.login_justid_hint));
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 input.setFilters(FilterArray);
                 alertDialog.setView(input);
@@ -192,7 +201,15 @@ public class LoginActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
 
-                        mAuth.sendPasswordResetEmail(input.getText().toString()+ "@student.ksu.edu.sa").addOnCompleteListener(new OnCompleteListener<Void>() {
+                        if(input.getText().toString().equals("400000000")){
+                            email="athalghannam@gmail.com";
+                        }
+
+                        else{
+                            email=input.getText().toString()+ "@student.ksu.edu.sa";
+                        }
+
+                        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -269,8 +286,12 @@ public class LoginActivity extends AppCompatActivity {
 //        MySharedPrefrence.putString(this, Constants.Keys.PHONE, phoneE.getText().toString());
 //        MySharedPrefrence.putString(this, Constants.Keys.USER_FNAME, fname.getText().toString());
 //
+        if(id.getText().toString().equals("400000000")) {
+            intent = new Intent(this, Main2Activity.class);
+}
 
-        Intent intent = new Intent(this, MainActivity.class);
+      else {         intent = new Intent(this, MainActivity.class);
+      }
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

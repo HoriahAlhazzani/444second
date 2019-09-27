@@ -229,7 +229,7 @@ TextView login_text;
 
         if (!isEmpty(ID)) {
 
-            if (!ID.getText().toString().substring(0, 1).equals("4") || ID.getText().toString().length() < 9) {
+            if (!ID.getText().toString().substring(0, 1).equals("4") || ID.getText().toString().length() < 9 ||ID.getText().toString().equals("400000000") ) {
                 ID.setError(getResources().getString(R.string.entervId));//string
                 flag = false;
             }
@@ -287,7 +287,7 @@ TextView login_text;
     private void executeSignUp() {
 
 //        MySharedPrefrence.putBoolean(this, Constants.Keys.DARK_MODE, false);
-        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, true);
+        MySharedPrefrence.putBoolean(this, Constants.Keys.IS_LOGIN, false);
         MySharedPrefrence.putString(this, Constants.Keys.USER_FNAME, fname.getText().toString());
         //lname.getText().toString()
         MySharedPrefrence.putString(this, Constants.Keys.USER_EMAIL, ID.getText().toString()+"@student.ksu.edu.sa");

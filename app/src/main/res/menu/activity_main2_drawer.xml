@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_students"
+            android:icon="@drawable/ic_perm_identity_black_24dp"
+            android:title="@string/menu_students" />
+<!--        <item-->
+<!--            android:id="@+id/nav_MyLocker"-->
+<!--            android:icon="@drawable/ic_view_agenda_black_24dp"-->
+<!--            android:title="@string/menu_MyLocker" />-->
+        <!--        <item-->
+        <!--            android:id="@+id/nav_Offers"-->
+        <!--            android:icon="@drawable/ic_card_giftcard_black_24dp"-->
+        <!--            android:title="@string/menu_Offers" />-->
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/menu_setting" />
+
+
+
+    </group>
+    <item android:title="@string/Goodbye">
+        <menu>
+            <item
+                android:id="@+id/nav_bye"
+                android:icon="@drawable/ic_power_settings_new_black_24dp"
+                android:title="@string/menu_Logout" />
+
+        </menu>
+    </item>
+
+
+
+</menu>

@@ -62,62 +62,65 @@ Toolbar toolbar;
         saveNewPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user = FirebaseAuth.getInstance().getCurrentUser();
-                final String email = user.getEmail();
 
-                AuthCredential credential = EmailAuthProvider
-                        .getCredential(email,CurrentPassword.getText().toString().trim());
+                if (checkDataEntered()) {
+
+                    user = FirebaseAuth.getInstance().getCurrentUser();
+                    final String email = user.getEmail();
+
+                    AuthCredential credential = EmailAuthProvider
+                            .getCredential(email, CurrentPassword.getText().toString().trim());
 
 // Prompt the user to re-provide their sign-in credentials
-                user.reauthenticate(credential)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    ///
-                                    if(checkDataEntered()) {
+                    user.reauthenticate(credential)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        ///
+                                        if (checkDataEntered()) {
 
 
-                                        user.updatePassword(newPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    Log.d(TAG, "Password updated");//toast message
-                                                    Toast.makeText(ForgotPasswordActivity.this, "password has been updated successfully."
-                                                            ,
-                                                            Toast.LENGTH_SHORT).show();
+                                            user.updatePassword(newPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Log.d(TAG, "Password updated");//toast message
+                                                        Toast.makeText(ForgotPasswordActivity.this, "password has been updated successfully."
+                                                                ,
+                                                                Toast.LENGTH_SHORT).show();
 
-                                                    updatePasswordInDatabase();
+                                                        updatePasswordInDatabase();
 
-                                                    startActivity(new Intent(ForgotPasswordActivity.this, MainActivity.class));
-                                                } else {
-                                                    Log.d(TAG, "password not updated.");
-                                                    Toast.makeText(ForgotPasswordActivity.this, "password not updated."
-                                                            ,
-                                                            Toast.LENGTH_SHORT).show();
+                                                        startActivity(new Intent(ForgotPasswordActivity.this, MainActivity.class));
+                                                    } else {
+                                                        Log.d(TAG, "password not updated.");
+                                                        Toast.makeText(ForgotPasswordActivity.this, "password not updated."
+                                                                ,
+                                                                Toast.LENGTH_SHORT).show();
 //                                                CurrentPassword.setError(getResources().getString(R.string.incorrectPassword));
 
 
+                                                    }
                                                 }
-                                            }
-                                        });
-                                        ////
-                                    }
+                                            });
+                                            ////
+                                        }
                                     } else {
-                                    Toast.makeText(ForgotPasswordActivity.this,"password not updated."
-                                            ,
-                                            Toast.LENGTH_SHORT).show();
-                                    CurrentPassword.setError(getResources().getString(R.string.incorrectPassword));
+                                        Toast.makeText(ForgotPasswordActivity.this, "password not updated."
+                                                ,
+                                                Toast.LENGTH_SHORT).show();
+                                        CurrentPassword.setError(getResources().getString(R.string.incorrectPassword));
 
 
-                                    Log.d(TAG, "Error auth failed");
+                                        Log.d(TAG, "Error auth failed");
+                                    }
                                 }
-                            }
-                        });
+                            });
 
 
-            }
-        });
+                }
+            }});
 
 
     }

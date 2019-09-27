@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="end"
-        android:drawableStart="@drawable/ic_notifications"
 
 
         android:paddingLeft="@dimen/album_title_padding"
@@ -17,6 +16,8 @@
         android:paddingRight="@dimen/album_title_padding"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20dp"
+        android:drawableStart="@drawable/ic_notifications"
+
         android:text="@string/notify" />
 
 
@@ -40,6 +41,25 @@
         android:paddingTop="@dimen/album_title_padding"
         android:paddingRight="@dimen/album_title_padding"
         android:text="@string/language"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"/>
+    <CheckedTextView
+        android:id="@+id/setResetPassword"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+android:drawableStart="@drawable/ic_settings_black_24dp"
+        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+        android:gravity="center"
+        android:paddingLeft="@dimen/album_title_padding"
+        android:paddingTop="@dimen/album_title_padding"
+        android:paddingRight="@dimen/album_title_padding"
+        android:text="@string/reset_password1"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20dp"
         />
