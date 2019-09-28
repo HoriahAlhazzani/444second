@@ -1,16 +1,13 @@
 package com.example.a444app;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.LayoutInflater;
+
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -26,8 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.regex.Pattern;
-// Hiiiiiii!
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -111,7 +107,12 @@ TextView login_text;
 
                                                         executeSignUp();
                                                         saveUserInfoDatabase();
-                                                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                                                        startActivity(intent);
+                                                        finish();
                                                 }
                                                 else {
 
@@ -135,17 +136,7 @@ TextView login_text;
                                 }
                             });
 
-//        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-//                    user= mAuth.getCurrentUser();
-//                    user.sendEmailVerification()
-//                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<Void> task) {
-//                                    if (task.isSuccessful()) {
-//                                        Log.d(TAG, "Email sent.");
-//                                    }
-//                                }
-//                            });
+
                 } else {
                     Toast.makeText(RegisterActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
@@ -275,12 +266,6 @@ TextView login_text;
         String cpass = cpassword.getText().toString();
         return pass.equals(cpass);
     } // end confirmPassword
-//
-
-//    private boolean isUniversityEmail(String email) {
-//        String domain = email.substring(email.indexOf("@") + 1);
-//        return domain.equals("student.ksu.edu.sa");
-//    }//end isElmEmail()
 
 
 
@@ -297,12 +282,7 @@ TextView login_text;
 
 
 
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-//        startActivity(intent);
-//        finish();
 
 
     } //end executeSignUp

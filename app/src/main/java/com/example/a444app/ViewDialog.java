@@ -16,16 +16,21 @@ public class ViewDialog {
 //        dialog.setCancelable(false);
         dialog.setContentView(R.layout.customview);
 
-//        TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
-//        text.setText(msg);
-
-        ImageView dialogButton = (ImageView) dialog.findViewById(R.id.btn_dialog);
-        dialogButton.setOnClickListener(new View.OnClickListener() {
+        TextView text = (TextView) dialog.findViewById(R.id.canceldialog);
+        text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
+
+//        ImageView dialogButton = (ImageView) dialog.findViewById(R.id.btn_dialog);
+//        dialogButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
 
         dialog.show();
 

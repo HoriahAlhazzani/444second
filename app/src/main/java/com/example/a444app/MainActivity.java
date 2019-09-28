@@ -18,17 +18,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-//import com.bumptech.glide.Glide;
-//import com.bumptech.glide.request.RequestOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
     HomeFragment homeFragment;
@@ -98,11 +94,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             setTitle(R.string.menu_home);
             replaceFrag(homeFragment);
-            //  getSupportFragmentManager().beginTransaction().replace(R.id.container, new map()).commit();
-//            startActivity(new Intent(MainActivity.this,MapActivity.class));
 
-//            MapActivity mapActivity = new MapActivity();
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, mapActivity).commit();
 
 
         } else if (id == R.id.nav_profile) {
@@ -110,31 +102,19 @@ public class MainActivity extends AppCompatActivity
 
             Profile profile = new Profile();
             replaceFrag(profile);
-//            History history = new History();
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, history).commit();
+
 
         } else if (id == R.id.nav_MyLocker) {
             setTitle(R.string.menu_MyLocker);
             MyLocker myLocker = new MyLocker();
             replaceFrag(myLocker);
-//            checkIsCreditCardSaved();
-
-//        } else if (id == R.id.nav_Offers) {
-//            setTitle(R.string.menu_Offers);
-////            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Offers()).commit();
 
         } else if (id == R.id.nav_setting) {
             setTitle(R.string.menu_setting);
             Settings settings = new Settings();
             replaceFrag(settings);}
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Settings()).commit();}
 
-//        } else if (id == R.id.nav_Contact_us) {
-//            setTitle(R.string.menu_Contactus);
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Contact_us()).commit();
-//
-//        }
-//
+
         else if (id == R.id.nav_bye) {
             setTitle(R.string.menu_Logout);
             new AlertDialog.Builder(this).setTitle("Logout").setMessage("Are you sure you want to log out?")
@@ -146,7 +126,6 @@ public class MainActivity extends AppCompatActivity
 
                         }}).setNegativeButton("NO",null).show();}
 
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new BecomeDriver()).commit();
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -156,30 +135,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-//    private void checkIsCreditCardSaved() {
-//
-//        //todo here move to menu drawer
-//        if (MySharedPrefrence.getBoolean(this, Constants.Keys.SAVED_CREDIT_CARD, false) &&
-//                ( !MySharedPrefrence.getString(this, Constants.Keys.CREDIT_CARD_NUMBER,"").equals("")) ){
-//
-////            setTitle(R.string.add_credit_card);
-////        getSupportFragmentManager().beginTransaction().replace(R.id.container, new AddCreditCardActivity()).commit();
-//            // getChildFragmentManager().beginTransaction().replace(R.id.container, new AddCreditCardActivity()).commit();
-//
-//            setTitle(R.string.saved_credit_card);
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new SavedCreditCardActivity()).commit();
-//
-//        }else {
-//            //  startActivity(new Intent(this, AddCreditCardActivity.class));
-////            finish();
-//
-//
-//            setTitle(R.string.add_credit_card);
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new AddCreditCardActivity()).commit();
-//        }//end else
-//
-//
-//    }//end checkIsLogin
+
 public  void logout(){
     String applang = MySharedPrefrence.getString(this,Constants.Keys.APP_LANGUAGE,"en");
     MySharedPrefrence.clearData(this);

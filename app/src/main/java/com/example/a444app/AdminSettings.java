@@ -35,10 +35,7 @@ public class AdminSettings extends Fragment {
         notification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-//                if(isChecked)
-//                    executeEnableNotiApiRequest("1");
-//                else
-//                    executeEnableNotiApiRequest("0");
+//
             }
         });//end setOnCheckedChangeListener
 

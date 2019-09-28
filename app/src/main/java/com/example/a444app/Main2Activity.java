@@ -98,45 +98,24 @@ public class Main2Activity extends AppCompatActivity
         if (id == R.id.nav_home) {
             setTitle(R.string.menu_home);
             replaceFrag(homeFragment);
-            //  getSupportFragmentManager().beginTransaction().replace(R.id.container, new map()).commit();
-//            startActivity(new Intent(MainActivity.this,MapActivity.class));
 
-//            MapActivity mapActivity = new MapActivity();
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, mapActivity).commit();
+            //different home for admin?
 
 
         } else if (id == R.id.nav_students) {
             setTitle(R.string.menu_students);
-//???????????????????????????????????????????????
             Students students = new Students();
             replaceFrag(students);
-//            History history = new History();
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, history).commit();
 
         }
-//        else if (id == R.id.nav_MyLocker) {
-//            setTitle(R.string.menu_MyLocker);
-//            MyLocker myLocker = new MyLocker();
-//            replaceFrag(myLocker);
-////            checkIsCreditCardSaved();
-//
-////        } else if (id == R.id.nav_Offers) {
-////            setTitle(R.string.menu_Offers);
-//////            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Offers()).commit();
-//
+
 //        }
         else if (id == R.id.nav_setting) {
             setTitle(R.string.menu_setting);
             //////////????????????????????
             AdminSettings settings = new AdminSettings();
             replaceFrag(settings);}
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Settings()).commit();}
 
-//        } else if (id == R.id.nav_Contact_us) {
-//            setTitle(R.string.menu_Contactus);
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Contact_us()).commit();
-//
-//        }
 //
         else if (id == R.id.nav_bye) {
             setTitle(R.string.menu_Logout);
@@ -159,30 +138,6 @@ public class Main2Activity extends AppCompatActivity
 
 
 
-    //    private void checkIsCreditCardSaved() {
-//
-//        //todo here move to menu drawer
-//        if (MySharedPrefrence.getBoolean(this, Constants.Keys.SAVED_CREDIT_CARD, false) &&
-//                ( !MySharedPrefrence.getString(this, Constants.Keys.CREDIT_CARD_NUMBER,"").equals("")) ){
-//
-////            setTitle(R.string.add_credit_card);
-////        getSupportFragmentManager().beginTransaction().replace(R.id.container, new AddCreditCardActivity()).commit();
-//            // getChildFragmentManager().beginTransaction().replace(R.id.container, new AddCreditCardActivity()).commit();
-//
-//            setTitle(R.string.saved_credit_card);
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new SavedCreditCardActivity()).commit();
-//
-//        }else {
-//            //  startActivity(new Intent(this, AddCreditCardActivity.class));
-////            finish();
-//
-//
-//            setTitle(R.string.add_credit_card);
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container, new AddCreditCardActivity()).commit();
-//        }//end else
-//
-//
-//    }//end checkIsLogin
     public  void logout(){
         String applang = MySharedPrefrence.getString(this,Constants.Keys.APP_LANGUAGE,"en");
         MySharedPrefrence.clearData(this);

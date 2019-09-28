@@ -9,11 +9,7 @@ import android.widget.CheckedTextView;
 
 import androidx.appcompat.widget.Toolbar;
 
-//import retrofit2.Call;
-//import retrofit2.Callback;
-//import retrofit2.Response;
-//import sa.elm.hr.elmsurveyssys.web_services.ApiClient;
-//import sa.elm.hr.elmsurveyssys.web_services.objs.GeneralResponse;
+
 
 public class Languages extends BaseActivity {
 
@@ -88,44 +84,7 @@ public class Languages extends BaseActivity {
 
     }//end onCreate
 
-//    private void executeLanguageApiRequest(final String language){
-//
-//        showProgressDialog(false);
-//
-//        ApiClient.getApi().getChangeLanguageRequest(MySharedPrefrence.getString(this,Constants.Keys.USER_ID,"-1"),language
-//        ).enqueue(new Callback<GeneralResponse>() {
-//            @Override
-//            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-//                Log.i(LOG,"onResponse : success");
-//
-//                if(response.body() != null){
-//
-//
-//                    if(response.body().getStatus()==1){
-//                    setLanguage(language);
-//                    }//end if
-//
-//                    else {
-//                        showDialog(response.body().getMsg());
-//
-//                    }//end else
-//                }//end outer if
-//            }//end onResponse
-//
-//
-//            @Override
-//            public void onFailure(Call<GeneralResponse> call, Throwable t) {
-//                Log.i(LOG," onFailure");
-//
-//                hideProgressDialog();
-//
-//
-//                showDialog(R.string.general_error);
-//
-//            }//end onFailure
-//        });//end enqueue
-//
-//    }//end executeLanguageApiRequest
+
 
     @Override
     public boolean onSupportNavigateUp() {

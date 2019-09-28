@@ -35,10 +35,7 @@ public class Settings extends Fragment {
         notification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-//                if(isChecked)
-//                    executeEnableNotiApiRequest("1");
-//                else
-//                    executeEnableNotiApiRequest("0");
+
             }
         });//end setOnCheckedChangeListener
 
@@ -58,65 +55,7 @@ public class Settings extends Fragment {
         return view;
     }
 
-//    private void executeEnableNotiApiRequest(final String enable) {
-//        showProgressDialog(false);
-//
-//        ApiClient.getApi().getEnableNotiRequest(
-//                MySharedPrefence.getString(getContext(),Constants.Keys.USER_ID,"en"),enable).enqueue(new Callback<GeneralResponse>() {
-//                    @Override
-//                    public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-//                        hideProgressDialog();
-//                        Log.i(LOG,"onResponse : Success");
-//                           if(response.body()!=null){
-//                               if(response.body().getStatus()==1){
-//                                   MySharedPrefence.putString(getContext(),Constants.Keys.ENABLE_NOTI,enable);
-//                                   }else{
-//                                        showDialog(response.body().getMsg());
-//                                             }//end else
-//                                                       }//end if
-//                                                          }//end onResponse()
-//
-//         @Override
-//                     public void onFailure(Call<GeneralResponse> call, Throwable t) {
-//
-//         }
-//                }
-//        );//end enqueue
-//    }//end executeLoginApiRequest()
 
-//    public void showProgressDialog(boolean isCancelable){
-//        try{
-//            if(progressDialog!=null||progressDialog.isShowing()){
-//                progressDialog= new ProgressDialog(getContext());
-//                progressDialog.setMessage(getString(R.string.wait));
-//                progressDialog.setCancelable(isCancelable);
-//                progressDialog.show();
-//            }
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }// end showProgressDialog
-//
-//    public void hideProgressDialog(){
-//
-//        if(progressDialog!=null)
-//            if(progressDialog.isShowing()&& !isVisible())
-//                progressDialog.dismiss();
-//
-//    }//end hideProgressDialog
-//
-//    public void showDialog(String msg){
-//        final AlertDialog alertDialog=new AlertDialog.Builder(getContext()).create();
-//
-//        alertDialog.setMessage(msg);
-//        alertDialog.setButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE, getString(R.string.ok), new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                alertDialog.dismiss();
-//            }
-//        });
-//        alertDialog.show();
-//    }//end showDialog()
 
 
 }
