@@ -297,7 +297,7 @@ TextView login_text;
 
          UserInformation userInformation=new UserInformation(unamer,uemailr,uidr,upasswordr,uphoner);
          FirebaseUser user=mAuth.getCurrentUser();
-         databaseReference.child(user.getUid()).setValue(userInformation);
+         databaseReference.child("users").child(user.getUid()).setValue(userInformation);
 
 
     }
