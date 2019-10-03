@@ -61,11 +61,11 @@ public class Profile extends Fragment {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
 
-                 String uname=dataSnapshot.child(uid).child("uname").getValue(String.class);
-                 String uemail=dataSnapshot.child(uid).child("uemail").getValue(String.class);
-                 String uiid=dataSnapshot.child(uid).child("uid").getValue(String.class);
-                 String upassword=dataSnapshot.child(uid).child("upassword").getValue(String.class);
-                 String uphone=dataSnapshot.child(uid).child("uphone").getValue(String.class);
+                 String uname=dataSnapshot.child("users").child(uid).child("uname").getValue(String.class);
+                 String uemail=dataSnapshot.child("users").child(uid).child("uemail").getValue(String.class);
+                 String uiid=dataSnapshot.child("users").child(uid).child("uid").getValue(String.class);
+                 String upassword=dataSnapshot.child("users").child(uid).child("upassword").getValue(String.class);
+                 String uphone=dataSnapshot.child("users").child(uid).child("uphone").getValue(String.class);
 
                 MySharedPrefrence.putString(getContext(), Constants.Keys.USER_FNAME, uname);
                 MySharedPrefrence.putString(getContext(), Constants.Keys.USER_EMAIL, uemail);
