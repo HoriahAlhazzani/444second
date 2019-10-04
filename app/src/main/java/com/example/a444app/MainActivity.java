@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
         //end if
 
 
-    }
+    }//end onCreate()
 
     @Override
     public void onBackPressed() {
@@ -81,7 +81,16 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
         }
+//        int count = getSupportFragmentManager().getBackStackEntryCount();
+//
+//        if (count == 0) {
+//            super.onBackPressed();
+//            //additional code
+//        } else {
+//            getSupportFragmentManager().popBackStack();
+//        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

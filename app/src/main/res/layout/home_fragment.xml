@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,13 +8,141 @@
     android:background="@color/bg"
     android:fitsSystemWindows="true">
 
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/locker_map">
-
-</ImageView>
-
     <include layout="@layout/content_main" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/container_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/collage_map">
+
+        </ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/area_pin1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginRight="170dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+            <ImageView
+                android:id="@+id/area_pin2"
+                android:layout_width="83dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="135dp"
+                android:layout_marginRight="136dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+            <ImageView
+                android:id="@+id/area_pin3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="178dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+            <ImageView
+                android:id="@+id/area_pin4"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="-12dp"
+                android:layout_marginTop="385dp"
+                android:layout_marginRight="286dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+            <ImageView
+                android:id="@+id/area_pin5"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="470dp"
+                android:layout_marginRight="-286dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+
+            <ImageView
+                android:id="@+id/area_pin6"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="143dp"
+                android:layout_marginRight="64dp"
+                android:layout_marginBottom="159dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+            <ImageView
+                android:id="@+id/area_pin7"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="167dp"
+                android:layout_marginTop="535dp"
+
+                android:layout_marginRight="36dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+            <ImageView
+                android:id="@+id/area_pin8"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="164dp"
+                android:layout_marginTop="589dp"
+
+                android:layout_marginRight="105dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+            <ImageView
+                android:id="@+id/area_pin9"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="164dp"
+                android:layout_marginTop="587dp"
+
+                android:layout_marginRight="153dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pin1" />
+
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>
