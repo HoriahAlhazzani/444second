@@ -61,7 +61,6 @@ public class SplashActivity extends AppCompatActivity
 
     private void checkIsLogin() {
 
-        //todo here move to menu drawer
         if (MySharedPrefrence.getBoolean(this, Constants.Keys.IS_LOGIN, false)) {
             if (MySharedPrefrence.getString(this, Constants.Keys.USER_ID, "").equals("400000000"))
                 startActivity(new Intent(this, Main2Activity.class));

@@ -151,7 +151,6 @@ public  void logout(){
 
 
     startActivity(intent);
-    //todo
     //finish();
 
 }

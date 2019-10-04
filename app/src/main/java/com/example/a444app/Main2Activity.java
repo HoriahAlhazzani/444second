@@ -153,7 +153,6 @@ public class Main2Activity extends AppCompatActivity
 
 
         startActivity(intent);
-        //todo
         //finish();
 
     }
