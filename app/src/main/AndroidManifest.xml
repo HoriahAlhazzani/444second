@@ -13,6 +13,9 @@
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".LockersArea" />
+        <activity android:name=".LockerInfo" />
+
         <activity android:name=".SplashActivity">
 
         </activity>
