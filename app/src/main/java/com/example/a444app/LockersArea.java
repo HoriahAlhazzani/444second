@@ -15,6 +15,7 @@ public class LockersArea extends BaseActivity{
 
     private Toolbar toolbar;
     private Button lockerBtn;
+    private LockerInfo LockerInfo;
 
 
     @Override
@@ -39,7 +40,7 @@ public class LockersArea extends BaseActivity{
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LockersArea.this, LockersArea.class);
+                Intent intent = new Intent(LockersArea.this, LockerInfo.class);
                 startActivity(intent);
 
             }
