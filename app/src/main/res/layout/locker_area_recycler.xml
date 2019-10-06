@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="10dp"
+>
 
 <!--    <Button-->
 <!--        android:id="@+id/lockerId"-->
@@ -20,18 +21,23 @@
 <!--        android:textSize="13sp" />-->
     <TextView
         android:id="@+id/lockerSelected"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:gravity="fill"
+        android:textAlignment="center"
+        android:textColor="@color/sea"
         android:background="@drawable/locker_unselected"
-        android:layout_centerHorizontal="true">
+        android:layout_centerVertical="true">
 
 
     </TextView>
     <TextView
         android:id="@+id/lockerUnselected"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:textColor="@color/sea"
+        android:textAlignment="center"
         android:background="@drawable/locker_selected"
-        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:visibility="invisible"/>
 </RelativeLayout>

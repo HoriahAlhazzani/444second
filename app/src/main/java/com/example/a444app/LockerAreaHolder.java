@@ -28,7 +28,7 @@ class LockerAreaHolder extends RecyclerView.ViewHolder{
     public void setLocker(Locker locker){
         String n=locker.getId()+"";
 //        id.setText(n);
-        lockerSelected.setText(n);
+        lockerSelected.setText("\n"+n);
                 lockerUnselected.setText(n);
 
 //        if(locker.isAvailability())

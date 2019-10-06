@@ -14,5 +14,16 @@
     <color name="bg">#f8fafb</color>
     <color name="white">#996464</color>
 
+<!--    Our Colors-->
+    <color name="gray">#cacad1</color>
+    <color name="grayWhite">#f8fafb</color>
+    <color name="lightGray">#dcdfe5</color>
+    <color name="darkBlue">#29455b</color>
+    <color name="blue">#6380ab</color>
+    <color name="lightBlue">#8fadc3</color>
+    <color name="sea">#7ec8d2</color>
+    <color name="light">#f0f5fd</color>
+
+
 
 </resources>

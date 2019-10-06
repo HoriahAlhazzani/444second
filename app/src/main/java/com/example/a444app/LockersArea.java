@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,7 +51,10 @@ public class LockersArea extends BaseActivity{
         toolbar = findViewById(R.id.toolbar);
 
         reference= FirebaseDatabase.getInstance().getReference();
-//        DB();
+
+
+
+        DB();
 
 
         setSupportActionBar(toolbar);
@@ -64,7 +68,8 @@ public class LockersArea extends BaseActivity{
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_area);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        RecyclerView.LayoutManager layoutManager= new GridLayoutManager(this,4);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         Query query = databaseReference.child("lockers");
@@ -105,7 +110,7 @@ public class LockersArea extends BaseActivity{
 
     private void DB() {
         //(int id, int num, char area, int sId, boolean availability, char size)
-        LinearLayout layout;
+//LinearLayout layout=null;
         lockers=new ArrayList<>();
 //        int i=1;
 //        //--A
@@ -134,7 +139,6 @@ public class LockersArea extends BaseActivity{
 
             for(int j=1;j<=16;j++){
                 lockers.add(new Locker(c++,i,"-1",true,"s"));
-
 
 
 
