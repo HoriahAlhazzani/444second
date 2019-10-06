@@ -20,7 +20,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/collage_map">
+            android:src="@drawable/last_colloge_map">
 
         </ImageView>
 
