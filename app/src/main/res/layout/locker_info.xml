@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        style="@style/linearParent"
+        android:layout_gravity="center"
+        android:padding="@dimen/loginViewsMargin"
+        >
+
+        <!--        <TextView-->
+        <!--            style="@style/headerTextPrimary"-->
+        <!--            android:layout_marginTop="@dimen/loginViewsMargin"-->
+        <!--            android:text="@string/Login"-->
+        <!--            android:textColor="@color/colorPrimaryDark" />-->
+
+
+
+        <TextView
+            android:id="@+id/lockerNum"
+            style="@style/parent"
+            android:text="@string/lockerNum"
+            android:textSize="18sp"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            />
+
+        <TextView
+            android:id="@+id/lockerArea"
+            style="@style/parent"
+            android:text="@string/lockerArea"
+            android:textSize="18sp"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            />
+
+        <TextView
+            android:id="@+id/lockerAva"
+            style="@style/parent"
+            android:text="@string/lockerAva"
+            android:textSize="18sp"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            />
+
+        <TextView
+            android:id="@+id/lockerSize"
+            style="@style/parent"
+            android:text="@string/lockerSize"
+            android:textSize="18sp"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            />
+
+
+
+<!--        <Button-->
+<!--            android:id="@+id/loginButton"-->
+<!--            style="@style/loginButton"-->
+<!--            android:text="@string/bookLocker"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="@dimen/loginViewsMargin"/>-->
+
+
+
+    </LinearLayout>

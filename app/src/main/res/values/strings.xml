@@ -57,18 +57,11 @@
     <string name="menu_students">Students</string>
     <string name="login_justid_hint">ID</string>
     <string name="admin">Admin</string>
-    <string name="booking">Booking Locker</string>
-    <string name="Lockersinfo">Locker Information</string>
-    <string name="book">Book</string>
-    <string name="lockerNumber">Locker Number</string>
-    <string name="lockerSize">Locker Size</string>
-    <string name="lockerPrice">Locker Price</string>
-    <string name="larg">Larg</string>
-    <string name="small">Small</string>
-    <string name="pookingperiod">This booking for one semester.</string>
+    <string name="lockerNum">Number</string>
+    <string name="lockerAva">Availability</string>
+    <string name="lockerSize">Size</string>
+    <string name="bookLocker">Book</string>
+    <string name="available">Available</string>
+    <string name="unavailable">Unavailable</string>
     <string name="lockerArea">Area</string>
-    <string name="lockerAvailable">Availabilty</string>
-    <string name="payment">Pay</string>
-    <string name="bookingmessage">You should to pay to reserve this locker.</string>
-
 </resources>

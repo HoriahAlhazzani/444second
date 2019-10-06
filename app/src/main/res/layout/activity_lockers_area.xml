@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:androidx.recyclerview="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,68 +23,14 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_area"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:layout_marginTop="36dp"
+        />
 
 
-        <Button
-            android:id="@+id/lockerBtn7"
-            android:layout_width="121dp"
-            android:layout_height="117dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="-3dp"
-            android:background="@drawable/locker"
-            android:paddingTop="43dp"
-            android:text="G-189"
-            android:textColor="@color/whiteTextColor"
-            android:textSize="13sp" />
 
-        <Button
-            android:id="@+id/lockerBtn5"
-            android:layout_width="121dp"
-            android:layout_height="117dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="198dp"
-            android:background="@drawable/locker"
-            android:paddingTop="43dp"
-            android:text="G-192"
-            android:textColor="@color/whiteTextColor"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/lockerBtn6"
-            android:layout_width="121dp"
-            android:layout_height="117dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="96dp"
-            android:background="@drawable/locker"
-            android:paddingTop="43dp"
-            android:text="G-193"
-            android:textColor="@color/whiteTextColor"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/lockerBtn"
-            android:layout_width="121dp"
-            android:layout_height="117dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="301dp"
-            android:background="@drawable/locker"
-            android:paddingTop="43dp"
-            android:text="G-195"
-            android:textColor="@color/whiteTextColor"
-            android:textSize="13sp" />
-
-    </RelativeLayout>
 </LinearLayout>
