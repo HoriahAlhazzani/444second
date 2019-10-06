@@ -29,12 +29,12 @@ class LockerAreaHolder extends RecyclerView.ViewHolder{
         String n=locker.getId()+"";
 //        id.setText(n);
         lockerSelected.setText("\n"+n);
-                lockerUnselected.setText(n);
+                lockerUnselected.setText("\n"+n);
 
-//        if(locker.isAvailability())
-//            availability.setText(R.string.available);
-//        else
-//            availability.setText(R.string.unavailable);
+      if(locker.isAvailability())
+          lockerUnselected.setVisibility(View.GONE);
+       else
+          lockerSelected.setVisibility(View.GONE);
 
 
     }//end bind()

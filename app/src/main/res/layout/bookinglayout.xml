@@ -38,6 +38,7 @@
 
 
         <TextView
+            android:id="@+id/idText"
             style="@style/modifiedEditText"
             android:text="@string/lockerNumber"
             android:textColor="@color/colorPrimaryDark"
@@ -46,6 +47,7 @@
             android:textSize="20dp"
             />
         <TextView
+            android:id="@+id/areaText"
             style="@style/modifiedEditText"
             android:text="@string/lockerArea"
             android:textColor="@color/colorPrimaryDark"

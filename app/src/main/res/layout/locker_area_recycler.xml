@@ -37,7 +37,7 @@
         android:layout_height="85dp"
         android:textColor="@color/sea"
         android:textAlignment="center"
+        android:gravity="fill"
         android:background="@drawable/locker_selected"
-        android:layout_centerVertical="true"
-        android:visibility="invisible"/>
+        android:layout_centerVertical="true" />
 </RelativeLayout>

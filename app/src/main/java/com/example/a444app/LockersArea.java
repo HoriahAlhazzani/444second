@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -26,7 +27,7 @@ import com.google.firebase.database.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LockersArea extends BaseActivity{
+public class LockersArea extends BaseActivity {
 
 
     private final String LOG = LockersArea.class.getSimpleName();
@@ -36,6 +37,8 @@ public class LockersArea extends BaseActivity{
     private Button lockerBtn;
     DatabaseReference reference;
     List<Locker> lockers;
+
+    TextView lockerSelected,lockerUnselected;
 
     private RecyclerView recyclerView;
     private  DatabaseReference databaseReference;
@@ -53,8 +56,12 @@ public class LockersArea extends BaseActivity{
         reference= FirebaseDatabase.getInstance().getReference();
 
 
-
 //        DB();
+//                            lockerSelected.setVisibility(View.GONE);
+//                            lockerUnselected.setVisibility(View.GONE);
+
+
+
 
 
         setSupportActionBar(toolbar);
@@ -82,12 +89,35 @@ public class LockersArea extends BaseActivity{
             @Override
             protected void onBindViewHolder(@NonNull LockerAreaHolder blogPostHolder, int position, @NonNull Locker blogPost) {
                 blogPostHolder.setLocker(blogPost);
+
+//                if(blogPost.isAvailability())
+//                    lockerSelected.setVisibility(View.GONE);
+//                    else
+//                    lockerUnselected.setVisibility(View.GONE);
+
             }
 
             @Override
             public LockerAreaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.locker_area_recycler, parent, false);
+                lockerSelected=view.findViewById(R.id.lockerSelected);
+                lockerUnselected=view.findViewById(R.id.lockerUnselected);
+                lockerSelected.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString());
+                        startActivity(new Intent(LockersArea.this,booking.class));
 
+                    }
+                });
+                lockerUnselected.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString());
+startActivity(new Intent(LockersArea.this,booking.class));
+
+                    }
+                });
                 return new LockerAreaHolder(view);
             }
         };
