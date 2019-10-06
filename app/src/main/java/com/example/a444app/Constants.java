@@ -13,6 +13,11 @@ public class Constants {
 
         String USER = "user";
 
+        String AREA = "area";
+//        int AREA = -1;
+
+
+
         String IS_LOGIN ="is_login" ;
         String USER_NAME = "user_name";
         String USER_FNAME = "user_fname";

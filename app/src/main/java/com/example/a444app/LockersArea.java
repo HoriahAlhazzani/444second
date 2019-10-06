@@ -54,7 +54,7 @@ public class LockersArea extends BaseActivity{
 
 
 
-        DB();
+//        DB();
 
 
         setSupportActionBar(toolbar);
@@ -72,7 +72,8 @@ public class LockersArea extends BaseActivity{
         recyclerView.setLayoutManager(new GridLayoutManager(this,4));
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        Query query = databaseReference.child("lockers");
+        int ar = MySharedPrefrence.getint(this, Constants.Keys.AREA,-1 );
+        Query query = databaseReference.child("lockers").orderByChild("area").equalTo(ar);
 
         firebaseRecyclerOptions = new FirebaseRecyclerOptions.Builder<Locker>()
                 .setQuery(query, Locker.class)

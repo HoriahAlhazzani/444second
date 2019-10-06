@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener  {
 
     View view;
 
@@ -34,30 +34,118 @@ public class HomeFragment extends Fragment {
 
   private DatabaseReference ref;
   private ProgressDialog progressDialog;
-  private ImageView areaPin,areaPin2;
+    Intent intent;
+
+  private ImageView areaPin1,areaPin2;
   private ImageView areaPin3,areaPin4;
+    private ImageView areaPin5,areaPin6;
+    private ImageView areaPin7,areaPin8,areaPin9;
+
 //  private LockersArea lockersFragment;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_fragment, container, false);
 
-        areaPin =view.findViewById(R.id.area_pin1);
+        areaPin1 =view.findViewById(R.id.area_pin1);
+        areaPin2 =view.findViewById(R.id.area_pin2);
+        areaPin3 =view.findViewById(R.id.area_pin3);
+        areaPin4 =view.findViewById(R.id.area_pin4);
+        areaPin5 =view.findViewById(R.id.area_pin5);
+        areaPin6 =view.findViewById(R.id.area_pin6);
+        areaPin7 =view.findViewById(R.id.area_pin7);
+        areaPin8 =view.findViewById(R.id.area_pin8);
+        areaPin9 =view.findViewById(R.id.area_pin9);
 
-        areaPin.setOnClickListener(new View.OnClickListener(){
+        areaPin1.setOnClickListener(this);
+        areaPin2.setOnClickListener(this);
+        areaPin3.setOnClickListener(this);
+        areaPin4.setOnClickListener(this);
+        areaPin5.setOnClickListener(this);
+        areaPin6.setOnClickListener(this);
+        areaPin7.setOnClickListener(this);
+        areaPin8.setOnClickListener(this);
+        areaPin9.setOnClickListener(this);
 
-            @Override
-            public void onClick(View view) {
-                readDB();
-                Intent intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
 
-            }
-        });
+//        areaPin1.setOnClickListener(new View.OnClickListener(){
+//
+//            @Override
+//            public void onClick(View view) {
+//                readDB();
+//                Intent intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//
+//            }
+//        });
+
 
         return view;
 
     }//end onCreateView
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.area_pin1:
+                //action
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 1);
+                 intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+
+                break;
+
+            case R.id.area_pin2:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 2);
+                 intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+
+                break;
+
+            case R.id.area_pin3:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 3);
+                intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+                break;
+
+            case R.id.area_pin4:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 4);
+                intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+                break;
+
+            case R.id.area_pin5:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 5);
+                intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+                break;
+
+            case R.id.area_pin6:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 6);
+                intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+                break;
+
+            case R.id.area_pin7:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 7);
+                intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+                break;
+
+            case R.id.area_pin8:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 8);
+                intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+                break;
+
+            case R.id.area_pin9:
+                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 9);
+                intent = new Intent(getActivity(), LockersArea.class);
+                startActivity(intent);
+                break;
+
+        }
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
