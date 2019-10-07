@@ -102,10 +102,12 @@ public class LockersArea extends BaseActivity {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.locker_area_recycler, parent, false);
                 lockerSelected=view.findViewById(R.id.lockerSelected);
                 lockerUnselected=view.findViewById(R.id.lockerUnselected);
+
+
                 lockerSelected.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString());
+                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString().substring(2));
                         startActivity(new Intent(LockersArea.this,booking.class));
 
                     }
@@ -113,7 +115,7 @@ public class LockersArea extends BaseActivity {
                 lockerUnselected.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString());
+                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString().substring(2));
 startActivity(new Intent(LockersArea.this,booking.class));
 
                     }

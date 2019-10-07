@@ -24,7 +24,7 @@ class LockerItemHolder extends RecyclerView.ViewHolder{
     }//end LockerItemHolder()
 
     public void setLocker(Locker locker){
-        String n=locker.getId()+"";
+        String n=locker.getId()+"/t"+num.getText();
         num.setText(n);
         String ar=locker.getArea()+"";
         area.setText(ar);// rtn name of area

@@ -14,7 +14,7 @@ public class Constants {
         String USER = "user";
 
         String AREA = "area";
-        String LOCKOER_ID = "area";
+        String LOCKOER_ID = "id";
 
 //        int AREA = -1;
 

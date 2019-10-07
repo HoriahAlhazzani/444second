@@ -5,7 +5,9 @@
     xmlns:androidx.recyclerview="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/light"
+    >
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,11 +23,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_locker"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       />
+    <include
+        layout="@layout/bookinglayout"/>
 
 
 
