@@ -1,11 +1,8 @@
 package com.example.a444app;
 
 
-import android.view.LayoutInflater;
+import android.graphics.Color;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +27,12 @@ class LockerAreaHolder extends RecyclerView.ViewHolder{
 //        id.setText(n);
         lockerSelected.setText("\n"+n);
                 lockerUnselected.setText("\n"+n);
+        lockerSelected.setTextColor(Color.rgb(255, 255, 255));
+        lockerSelected.setPadding(0,30 ,0,0);
+        lockerUnselected.setTextColor(Color.rgb(255, 255, 255));
+        lockerUnselected.setPadding(0,30 ,0,0);
+        lockerSelected.setTextSize(20);
+        lockerUnselected.setTextSize(20);
 
       if(locker.isAvailability())
           lockerUnselected.setVisibility(View.GONE);
