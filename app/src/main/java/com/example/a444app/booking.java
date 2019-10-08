@@ -30,13 +30,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import static android.app.PendingIntent.getActivity;
 import static com.example.a444app.R.id.booking_button;
+import static com.example.a444app.R.id.lockerAva;
 
 public class booking extends BaseActivity {
 
     private Toolbar toolbar;
     Button booking_button;
      DatabaseReference databaseReference;
-     TextView num,area,availability,size;
+     TextView num,area,availability,size,price;
 
     TextView booking_text;
     TextView payment,idText;
@@ -51,7 +52,7 @@ public class booking extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
-
+        booking_button=findViewById(R.id.booking_button);
 //        idText = findViewById(R.id.idText);
         toolbar = findViewById(R.id.toolbar);
         Strlocker_id = MySharedPrefrence.getString(this, Constants.Keys.LOCKOER_ID, "");
@@ -66,13 +67,19 @@ public class booking extends BaseActivity {
         area=findViewById(R.id.lockerArea);
         availability=findViewById(R.id.lockerAva);
         size =findViewById(R.id.lockerSize);
+        price=findViewById(R.id.lockerPrice);
         //--
-
+booking_button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(booking.this,payment.class));
+    }
+});
 //        String id = MySharedPrefrence.getString(this, Constants.Keys.LOCKOER_ID,"" );
 
         setSupportActionBar(toolbar);
-//        setTitle("Locker Information");
-        setTitle("");
+        setTitle("Locker Information");
+//        setTitle("");
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -106,19 +113,23 @@ public class booking extends BaseActivity {
     }
 
     public void setLocker(Locker locker){
+        //TextView num,area,availability,size,price;
+
         String n=num.getText()+"\t"+locker.getId();
         num.setText(n);
         String ar=locker.getArea()+"";
-        area.setText(ar);// rtn name of area
+        area.setText(area.getText().toString()+"\t"+ar);// rtn name of area
 
         //price
 
         if(locker.isAvailability())
-            availability.setText(R.string.available);
+            availability.setText(getResources().getString(R.string.lockerAva)+"\t"+getResources().getString(R.string.available));
         else
-            availability.setText(R.string.unavailable);
+            availability.setText(getResources().getString(R.string.lockerAva)+"\t"+getResources().getString(R.string.unavailable));
         String s=locker.getSize()+"";
-        size.setText(s);// rtn name of size
+        size.setText(size.getText().toString()+"\t"+s.toUpperCase());// rtn name of size
+        price.setText(price.getText().toString()+"\t"+180+" S.R");// rtn name of size
+
 
     }//end bind()
 

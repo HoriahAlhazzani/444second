@@ -12,7 +12,7 @@
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
     <color name="bg">#f8fafb</color>
-    <color name="white">#996464</color>
+<!--    <color name="white">#996464</color>-->
 
 <!--    Our Colors-->
     <color name="gray">#cacad1</color>
@@ -24,6 +24,7 @@
     <color name="sea">#7ec8d2</color>
     <color name="light">#f0f5fd</color>
 
+    <color name="white">#FFF</color>
 
 
 </resources>

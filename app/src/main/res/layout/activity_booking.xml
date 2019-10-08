@@ -58,12 +58,12 @@
                 android:layout_marginLeft="30dp">
 
 
-                <TextView
-                    style="@style/headerText"
-                    android:layout_gravity="center"
-                    android:textColor="#FFFF"
-                    android:text="@string/Lockersinfo"
-                    android:layout_marginTop="30dp"/>
+<!--                <TextView-->
+<!--                    style="@style/headerText"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:textColor="#FFFF"-->
+<!--                    android:text="@string/Lockersinfo"-->
+<!--                    android:layout_marginTop="30dp"/>-->
                 <include
                     layout="@layout/bookinglayout"/>
             </LinearLayout>
