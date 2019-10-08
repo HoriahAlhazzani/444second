@@ -18,6 +18,7 @@ public class Constants {
 
 //        int AREA = -1;
 
+     String IS_ADMIN ="is_admin" ;
 
 
         String IS_LOGIN ="is_login" ;

@@ -47,6 +47,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_fragment, container, false);
 
+
+
         areaPin1 =view.findViewById(R.id.area_pin1);
         areaPin2 =view.findViewById(R.id.area_pin2);
         areaPin3 =view.findViewById(R.id.area_pin3);
@@ -57,15 +59,24 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
         areaPin8 =view.findViewById(R.id.area_pin8);
         areaPin9 =view.findViewById(R.id.area_pin9);
 
-        areaPin1.setOnClickListener(this);
-        areaPin2.setOnClickListener(this);
-        areaPin3.setOnClickListener(this);
-        areaPin4.setOnClickListener(this);
-        areaPin5.setOnClickListener(this);
-        areaPin6.setOnClickListener(this);
-        areaPin7.setOnClickListener(this);
-        areaPin8.setOnClickListener(this);
-        areaPin9.setOnClickListener(this);
+
+
+            if (MySharedPrefrence.getBoolean(getContext(), Constants.Keys.IS_ADMIN, false)) {
+
+
+            }else
+            {
+                areaPin1.setOnClickListener(this);
+                areaPin2.setOnClickListener(this);
+                areaPin3.setOnClickListener(this);
+                areaPin4.setOnClickListener(this);
+                areaPin5.setOnClickListener(this);
+                areaPin6.setOnClickListener(this);
+                areaPin7.setOnClickListener(this);
+                areaPin8.setOnClickListener(this);
+                areaPin9.setOnClickListener(this);
+            }
+
 
 
 //        areaPin1.setOnClickListener(new View.OnClickListener(){

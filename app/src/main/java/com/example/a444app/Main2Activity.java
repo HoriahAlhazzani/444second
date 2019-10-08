@@ -54,6 +54,8 @@ public class Main2Activity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        MySharedPrefrence.putBoolean(Main2Activity.this,Constants.Keys.IS_ADMIN,true);
+
 
         if (savedInstanceState == null) {
             setTitle(R.string.menu_home);
