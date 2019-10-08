@@ -129,6 +129,13 @@ public class LockersArea extends BaseActivity {
                 new RecyclerItemClickListener(LockersArea.this, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         // do whatever
+                        if (MySharedPrefrence.getBoolean(LockersArea.this, Constants.Keys.IS_ADMIN, false)) {
+                            Toast.makeText(LockersArea.this, "Sorry you can't access this now, Soon you will be able .."
+                                    ,
+                                    Toast.LENGTH_SHORT).show();
+                            return;
+
+                        }
                         lockerSelected=view.findViewById(R.id.lockerSelected);
                 lockerUnselected=view.findViewById(R.id.lockerUnselected);
 //

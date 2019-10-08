@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -61,11 +62,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
 
 
 
-            if (MySharedPrefrence.getBoolean(getContext(), Constants.Keys.IS_ADMIN, false)) {
 
 
-            }else
-            {
                 areaPin1.setOnClickListener(this);
                 areaPin2.setOnClickListener(this);
                 areaPin3.setOnClickListener(this);
@@ -75,7 +73,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
                 areaPin7.setOnClickListener(this);
                 areaPin8.setOnClickListener(this);
                 areaPin9.setOnClickListener(this);
-            }
 
 
 
@@ -97,6 +94,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
 
     @Override
     public void onClick(View view) {
+//        if (MySharedPrefrence.getBoolean(getContext(), Constants.Keys.IS_ADMIN, false)) {
+//            Toast.makeText(getContext(), "Sorry you can't access this now, Soon you will be able .."
+//                    ,
+//                    Toast.LENGTH_SHORT).show();
+//return;
+//
+//        }
         switch (view.getId()){
             case R.id.area_pin1:
                 //action
