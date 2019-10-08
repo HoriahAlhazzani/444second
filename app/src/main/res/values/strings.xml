@@ -62,12 +62,12 @@
     <string name="book">Book</string>
     <string name="lockerNumber">Locker Number:</string>
     <string name="lockerSize">Locker Size:</string>
-    <string name="lockerPrice">Locker Price:</string>
+    <string name="lockerPrice">Booking Price:</string>
     <string name="larg">Larg</string>
     <string name="small">Small</string>
     <string name="pookingperiod">This booking for one semester.</string>
     <string name="lockerArea">Area:</string>
-    <string name="lockerAvailable">Availabilty:</string>
+    <string name="lockerAvailable">Status:</string>
     <string name="payment">Coming Soon.. Sprint 3!</string>
     <string name="bookingmessage">You should to pay to reserve this locker.</string>
     <string name="lockerNum">Number:</string>

@@ -45,15 +45,15 @@
             android:textStyle="bold"
             android:textSize="20dp"
             />
-        <TextView
-            android:id="@+id/lockerArea"
-            style="@style/modifiedEditText"
-            android:text="@string/lockerArea"
-            android:textColor="@color/colorPrimaryDark"
-            android:padding="10dp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/lockerArea"-->
+<!--            style="@style/modifiedEditText"-->
+<!--            android:text="@string/lockerArea"-->
+<!--            android:textColor="@color/colorPrimaryDark"-->
+<!--            android:padding="10dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="20dp"-->
+<!--            />-->
 
         <TextView
             android:id="@+id/lockerSize"

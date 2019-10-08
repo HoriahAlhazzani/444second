@@ -64,7 +64,7 @@ public class booking extends BaseActivity {
         //---
 
         num=findViewById(R.id.lockerNum);
-        area=findViewById(R.id.lockerArea);
+//        area=findViewById(R.id.lockerArea);
         availability=findViewById(R.id.lockerAva);
         size =findViewById(R.id.lockerSize);
         price=findViewById(R.id.lockerPrice);
@@ -117,8 +117,8 @@ booking_button.setOnClickListener(new View.OnClickListener() {
 
         String n=num.getText()+"\t"+locker.getId();
         num.setText(n);
-        String ar=locker.getArea()+"";
-        area.setText(area.getText().toString()+"\t"+ar);// rtn name of area
+//        String ar=locker.getArea()+"";
+//        area.setText(area.getText().toString()+"\t"+ar);// rtn name of area
 
         //price
 
@@ -127,7 +127,11 @@ booking_button.setOnClickListener(new View.OnClickListener() {
         else
             availability.setText(getResources().getString(R.string.lockerAva)+"\t"+getResources().getString(R.string.unavailable));
         String s=locker.getSize()+"";
-        size.setText(size.getText().toString()+"\t"+s.toUpperCase());// rtn name of size
+        if(s.equalsIgnoreCase("s"))
+        size.setText(size.getText().toString()+"\t"+getResources().getString(R.string.small));// rtn name of size
+        else
+            size.setText(size.getText().toString()+"\t"+getResources().getString(R.string.larg));// rtn name of size
+
         price.setText(price.getText().toString()+"\t"+180+" S.R");// rtn name of size
 
 
