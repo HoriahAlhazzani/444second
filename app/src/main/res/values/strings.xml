@@ -75,5 +75,6 @@
     <string name="bookLocker">Book</string>
     <string name="available">Available</string>
     <string name="unavailable">Unavailable</string>
+    <string name="unav">Sorry, This locker is unavailable</string>
 
 </resources>

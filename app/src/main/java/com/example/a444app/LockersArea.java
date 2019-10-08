@@ -3,12 +3,14 @@ package com.example.a444app;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -32,6 +34,8 @@ public class LockersArea extends BaseActivity {
 
     private final String LOG = LockersArea.class.getSimpleName();
 
+
+    private int selectedPos = RecyclerView.NO_POSITION;
 
     private Toolbar toolbar;
     private Button lockerBtn;
@@ -90,24 +94,49 @@ public class LockersArea extends BaseActivity {
             protected void onBindViewHolder(@NonNull LockerAreaHolder blogPostHolder, int position, @NonNull Locker blogPost) {
                 blogPostHolder.setLocker(blogPost);
 
-//                if(blogPost.isAvailability())
-//                    lockerSelected.setVisibility(View.GONE);
-//                    else
-//                    lockerUnselected.setVisibility(View.GONE);
 
             }
 
             @Override
             public LockerAreaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.locker_area_recycler, parent, false);
-                lockerSelected=view.findViewById(R.id.lockerSelected);
+//                lockerSelected=view.findViewById(R.id.lockerSelected);
+//                lockerUnselected=view.findViewById(R.id.lockerUnselected);
+////
+////
+//                lockerSelected.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString().replaceAll("\n","").trim());
+//                        startActivity(new Intent(LockersArea.this,booking.class));
+//
+//                    }
+//                });
+//                lockerUnselected.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString().replaceAll("\n","").trim());
+//startActivity(new Intent(LockersArea.this,booking.class));
+////
+//                    }
+//                });
+                return new LockerAreaHolder(view);
+            }
+        };
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(LockersArea.this, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        // do whatever
+                        lockerSelected=view.findViewById(R.id.lockerSelected);
                 lockerUnselected=view.findViewById(R.id.lockerUnselected);
-
-
+//
+//
                 lockerSelected.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString().substring(2));
+                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString().replaceAll("\n","").trim());
                         startActivity(new Intent(LockersArea.this,booking.class));
 
                     }
@@ -115,15 +144,24 @@ public class LockersArea extends BaseActivity {
                 lockerUnselected.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString().substring(2));
-startActivity(new Intent(LockersArea.this,booking.class));
+//                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString().replaceAll("\n","").trim());
+//startActivity(new Intent(LockersArea.this,booking.class));
 
+                        Toast.makeText(LockersArea.this, getResources().getString(R.string.unav)
+                                ,
+                                Toast.LENGTH_SHORT).show();
+
+
+//
                     }
                 });
-                return new LockerAreaHolder(view);
-            }
-        };
-        recyclerView.setAdapter(firebaseRecyclerAdapter);
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
     }
 
     @Override

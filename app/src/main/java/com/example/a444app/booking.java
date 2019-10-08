@@ -49,16 +49,19 @@ public class booking extends BaseActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_locker_info);
+        setContentView(R.layout.activity_booking);
 
 
 //        idText = findViewById(R.id.idText);
         toolbar = findViewById(R.id.toolbar);
         Strlocker_id = MySharedPrefrence.getString(this, Constants.Keys.LOCKOER_ID, "");
-        locker_id = Integer.parseInt(Strlocker_id.trim());
+//        locker_id = Integer.parseInt(Strlocker_id.trim());
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        Log.i("booking",locker_id+"");
+//        Log.i("booking",locker_id+"");
+        Log.i("booking",Strlocker_id);
+
         //---
+
         num=findViewById(R.id.lockerNum);
         area=findViewById(R.id.lockerArea);
         availability=findViewById(R.id.lockerAva);
@@ -68,13 +71,21 @@ public class booking extends BaseActivity {
 //        String id = MySharedPrefrence.getString(this, Constants.Keys.LOCKOER_ID,"" );
 
         setSupportActionBar(toolbar);
-        setTitle("Locker Information");
+//        setTitle("Locker Information");
+        setTitle("");
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 //        Query query = databaseReference.child("lockers").orderByChild("id").equalTo(locker_id);
-        Query query = databaseReference.child("lockers").orderByChild("id").equalTo(locker_id);
+//        Query query = databaseReference.child("lockers").orderByChild("id").equalTo("3");
+
+                locker_id = Integer.parseInt(Strlocker_id.trim());
+
+        Query query = databaseReference.child("lockers").child(locker_id-1+"");
+
+
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -99,6 +110,8 @@ public class booking extends BaseActivity {
         num.setText(n);
         String ar=locker.getArea()+"";
         area.setText(ar);// rtn name of area
+
+        //price
 
         if(locker.isAvailability())
             availability.setText(R.string.available);

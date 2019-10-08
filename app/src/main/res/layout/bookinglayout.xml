@@ -15,13 +15,13 @@
         android:layout_gravity="center"
         android:padding="@dimen/loginViewsMargin">
 
-        <TextView
-            style="@style/headerTextPrimary"
-            android:text="@string/Lockersinfo"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_marginTop="@dimen/loginViewsMargin"
-            android:padding="10dp"
-            />
+<!--        <TextView-->
+<!--            style="@style/headerTextPrimary"-->
+<!--            android:text="@string/Lockersinfo"-->
+<!--            android:textColor="@color/colorPrimaryDark"-->
+<!--            android:layout_marginTop="@dimen/loginViewsMargin"-->
+<!--            android:padding="10dp"-->
+<!--            />-->
 
 
 <!--        <TextView-->
