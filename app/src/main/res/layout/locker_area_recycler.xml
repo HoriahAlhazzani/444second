@@ -26,7 +26,7 @@
         android:gravity="fill"
         android:textAlignment="center"
         android:textColor="@color/sea"
-        android:background="@drawable/locker_unselected"
+        android:background="@drawable/locker_selected"
         android:layout_centerVertical="true">
 
 
@@ -38,6 +38,6 @@
         android:textColor="@color/sea"
         android:textAlignment="center"
         android:gravity="fill"
-        android:background="@drawable/locker_selected"
+        android:background="@drawable/locker_unselected"
         android:layout_centerVertical="true" />
 </RelativeLayout>

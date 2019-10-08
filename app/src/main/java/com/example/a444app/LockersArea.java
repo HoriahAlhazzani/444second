@@ -61,6 +61,7 @@ public class LockersArea extends BaseActivity {
 
 
 //        DB();
+
 //                            lockerSelected.setVisibility(View.GONE);
 //                            lockerUnselected.setVisibility(View.GONE);
 
@@ -79,7 +80,6 @@ public class LockersArea extends BaseActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_area);
 
-//        RecyclerView.LayoutManager layoutManager= new GridLayoutManager(this,4);
         recyclerView.setLayoutManager(new GridLayoutManager(this,4));
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -190,6 +190,7 @@ public class LockersArea extends BaseActivity {
         //(int id, int num, char area, int sId, boolean availability, char size)
 //LinearLayout layout=null;
         lockers=new ArrayList<>();
+        Locker locker;
 //        int i=1;
 //        //--A
 //
@@ -216,10 +217,16 @@ public class LockersArea extends BaseActivity {
         for(int i=1;i<=9;i++){
 
             for(int j=1;j<=16;j++){
-                lockers.add(new Locker(c++,i,"-1",true,"s"));
 
+                locker=new Locker(c++,i,"-1",true,"s");
+                if(c%3==0) {
+                    locker.setAvailability(false);
+                    locker.setsId("439003258");
+                }
+               if(i%3==0){
+                   locker.setSize("l");}
 
-
+                   lockers.add(locker);
             }}
 
 
