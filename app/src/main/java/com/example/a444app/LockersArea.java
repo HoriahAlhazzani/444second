@@ -81,6 +81,11 @@ public class LockersArea extends BaseActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_area);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this,4));
+        //{
+//        public boolean canScrollVertically() {
+//            return false;
+//        }
+//    };
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         int ar = MySharedPrefrence.getint(this, Constants.Keys.AREA,-1 );
@@ -91,8 +96,11 @@ public class LockersArea extends BaseActivity {
                 .build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Locker, LockerAreaHolder>(firebaseRecyclerOptions) {
             @Override
-            protected void onBindViewHolder(@NonNull LockerAreaHolder blogPostHolder, int position, @NonNull Locker blogPost) {
-                blogPostHolder.setLocker(blogPost);
+            protected void onBindViewHolder(@NonNull LockerAreaHolder blogPostHolder, int position, @NonNull Locker loc) {
+                if(loc.getSize().equalsIgnoreCase("l"))
+                    blogPostHolder.setLargeLocker(loc);
+                    else
+                    blogPostHolder.setLocker(loc);
 
 
             }

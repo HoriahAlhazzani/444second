@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="10dp"
+
 >
 
 <!--    <Button-->
@@ -21,6 +22,7 @@
 <!--        android:textSize="13sp" />-->
     <TextView
         android:id="@+id/lockerSelected"
+        android:layout_marginTop="10dp"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:gravity="fill"
@@ -33,6 +35,7 @@
     </TextView>
     <TextView
         android:id="@+id/lockerUnselected"
+        android:layout_marginTop="10dp"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:textColor="@color/sea"
@@ -40,4 +43,29 @@
         android:gravity="fill"
         android:background="@drawable/locker_unselected"
         android:layout_centerVertical="true" />
+<!--    Large Lockers-->
+
+    <TextView
+        android:id="@+id/llockerSelected"
+        android:layout_width="85dp"
+        android:layout_height="119dp"
+        android:gravity="fill"
+        android:textAlignment="center"
+        android:textColor="@color/sea"
+        android:background="@drawable/llocker_selected"
+        android:layout_centerVertical="true">
+
+
+    </TextView>
+    <TextView
+        android:id="@+id/llockerUnselected"
+        android:layout_width="85dp"
+        android:layout_height="119dp"
+        android:textColor="@color/sea"
+        android:textAlignment="center"
+        android:gravity="fill"
+        android:background="@drawable/llocker_unselected"
+        android:layout_centerVertical="true" />
+
+
 </RelativeLayout>
