@@ -6,7 +6,7 @@
 
     <!--colors for modern ui-->
     <color name="whiteTextColor">#FFFFFF</color>
-    <color name="primaryTextColor">#00a5ff</color>
+    <color name="primaryTextColor">#00A5FF</color>
     <color name="loginBkColor">#f0f0f0</color>
 
     <!--colros for card-->
@@ -21,7 +21,7 @@
     <color name="darkBlue">#29455b</color>
     <color name="blue">#6380ab</color>
     <color name="lightBlue">#8fadc3</color>
-    <color name="sea">#7ec8d2</color>
+    <color name="sea">#7EC8D2</color>
     <color name="light">#f0f5fd</color>
 
     <color name="white">#FFF</color>

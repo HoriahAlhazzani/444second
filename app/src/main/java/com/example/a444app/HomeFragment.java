@@ -1,30 +1,18 @@
 package com.example.a444app;
 
 import android.app.ProgressDialog;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
-
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 public class HomeFragment extends Fragment implements View.OnClickListener  {
@@ -37,10 +25,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
   private ProgressDialog progressDialog;
     Intent intent;
 
-  private ImageView areaPin1,areaPin2;
-  private ImageView areaPin3,areaPin4;
-    private ImageView areaPin5,areaPin6;
-    private ImageView areaPin7,areaPin8,areaPin9;
+  private Button areaPin1,areaPin2;
+  private Button areaPin3,areaPin4;
+    private Button areaPin5,areaPin6;
+    private Button areaPin7,areaPin8,areaPin9;
 
 //  private LockersArea lockersFragment;
 
@@ -50,15 +38,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
 
 
 
-        areaPin1 =view.findViewById(R.id.area_pin1);
-        areaPin2 =view.findViewById(R.id.area_pin2);
-        areaPin3 =view.findViewById(R.id.area_pin3);
-        areaPin4 =view.findViewById(R.id.area_pin4);
-        areaPin5 =view.findViewById(R.id.area_pin5);
-        areaPin6 =view.findViewById(R.id.area_pin6);
-        areaPin7 =view.findViewById(R.id.area_pin7);
-        areaPin8 =view.findViewById(R.id.area_pin8);
-        areaPin9 =view.findViewById(R.id.area_pin9);
+        areaPin1 =(Button)view.findViewById(R.id.area_pin1);
+        areaPin2 =(Button)view.findViewById(R.id.area_pin2);
+//        areaPin3 =view.findViewById(R.id.area_pin3);
+//        areaPin4 =view.findViewById(R.id.area_pin4);
+//        areaPin5 =view.findViewById(R.id.area_pin5);
+//        areaPin6 =view.findViewById(R.id.area_pin6);
+//        areaPin7 =view.findViewById(R.id.area_pin7);
+//        areaPin8 =view.findViewById(R.id.area_pin8);
+//        areaPin9 =view.findViewById(R.id.area_pin9);
 
 
 
@@ -66,13 +54,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
 
                 areaPin1.setOnClickListener(this);
                 areaPin2.setOnClickListener(this);
-                areaPin3.setOnClickListener(this);
-                areaPin4.setOnClickListener(this);
-                areaPin5.setOnClickListener(this);
-                areaPin6.setOnClickListener(this);
-                areaPin7.setOnClickListener(this);
-                areaPin8.setOnClickListener(this);
-                areaPin9.setOnClickListener(this);
+//                areaPin3.setOnClickListener(this);
+//                areaPin4.setOnClickListener(this);
+//                areaPin5.setOnClickListener(this);
+//                areaPin6.setOnClickListener(this);
+//                areaPin7.setOnClickListener(this);
+//                areaPin8.setOnClickListener(this);
+//                areaPin9.setOnClickListener(this);
 
 
 
@@ -117,47 +105,47 @@ public class HomeFragment extends Fragment implements View.OnClickListener  {
 
                 break;
 
-            case R.id.area_pin3:
-                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 3);
-                intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
-                break;
-
-            case R.id.area_pin4:
-                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 4);
-                intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
-                break;
-
-            case R.id.area_pin5:
-                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 5);
-                intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
-                break;
-
-            case R.id.area_pin6:
-                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 6);
-                intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
-                break;
-
-            case R.id.area_pin7:
-                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 7);
-                intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
-                break;
-
-            case R.id.area_pin8:
-                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 8);
-                intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
-                break;
-
-            case R.id.area_pin9:
-                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 9);
-                intent = new Intent(getActivity(), LockersArea.class);
-                startActivity(intent);
-                break;
+//            case R.id.area_pin3:
+//                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 3);
+//                intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//                break;
+//
+//            case R.id.area_pin4:
+//                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 4);
+//                intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//                break;
+//
+//            case R.id.area_pin5:
+//                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 5);
+//                intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//                break;
+//
+//            case R.id.area_pin6:
+//                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 6);
+//                intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//                break;
+//
+//            case R.id.area_pin7:
+//                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 7);
+//                intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//                break;
+//
+//            case R.id.area_pin8:
+//                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 8);
+//                intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//                break;
+//
+//            case R.id.area_pin9:
+//                MySharedPrefrence.putint(getContext(), Constants.Keys.AREA, 9);
+//                intent = new Intent(getActivity(), LockersArea.class);
+//                startActivity(intent);
+//                break;
 
         }
     }
