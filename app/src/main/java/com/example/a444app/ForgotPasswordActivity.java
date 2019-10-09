@@ -92,7 +92,12 @@ Toolbar toolbar;
 
                                                         updatePasswordInDatabase();
 
-                                                        startActivity(new Intent(ForgotPasswordActivity.this, MainActivity.class));
+                                                        if (MySharedPrefrence.getBoolean(ForgotPasswordActivity.this, Constants.Keys.IS_ADMIN, false))
+                                                            startActivity(new Intent(ForgotPasswordActivity.this, Main2Activity.class));
+
+                                                        else
+                                                            startActivity(new Intent(ForgotPasswordActivity.this, MainActivity.class));
+                                                        
                                                     } else {
                                                         Log.d(TAG, "password not updated.");
                                                         Toast.makeText(ForgotPasswordActivity.this, "password not updated."
