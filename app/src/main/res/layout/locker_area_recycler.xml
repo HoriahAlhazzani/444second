@@ -48,7 +48,7 @@
     <TextView
         android:id="@+id/llockerSelected"
         android:layout_width="85dp"
-        android:layout_height="119dp"
+        android:layout_height="100dp"
         android:gravity="fill"
         android:textAlignment="center"
         android:textColor="@color/sea"
@@ -60,7 +60,7 @@
     <TextView
         android:id="@+id/llockerUnselected"
         android:layout_width="85dp"
-        android:layout_height="119dp"
+        android:layout_height="100dp"
         android:textColor="@color/sea"
         android:textAlignment="center"
         android:gravity="fill"
