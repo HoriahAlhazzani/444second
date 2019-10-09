@@ -34,6 +34,7 @@ public class LockersArea extends BaseActivity {
 
     private final String LOG = LockersArea.class.getSimpleName();
 
+    private TextView llockerSelected,llockerUnselected;
 
     private int selectedPos = RecyclerView.NO_POSITION;
 
@@ -146,30 +147,53 @@ public class LockersArea extends BaseActivity {
                         }
                         lockerSelected=view.findViewById(R.id.lockerSelected);
                 lockerUnselected=view.findViewById(R.id.lockerUnselected);
-//
+llockerSelected= (TextView)view.findViewById(R.id.llockerSelected);
+        llockerUnselected= (TextView)view.findViewById(R.id.llockerUnselected);
 //
                 lockerSelected.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString().replaceAll("\n","").trim());
-                        startActivity(new Intent(LockersArea.this,booking.class));
+                            @Override
+                            public void onClick(View v) {
+                                MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerSelected.getText().toString().replaceAll("\n","").trim());
+                                startActivity(new Intent(LockersArea.this,booking.class));
 
-                    }
-                });
-                lockerUnselected.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                            }
+                        });
+                        lockerUnselected.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
 //                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString().replaceAll("\n","").trim());
 //startActivity(new Intent(LockersArea.this,booking.class));
 
-                        Toast.makeText(LockersArea.this, getResources().getString(R.string.unav)
-                                ,
-                                Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LockersArea.this, getResources().getString(R.string.unav)
+                                        ,
+                                        Toast.LENGTH_SHORT).show();
 
 
 //
-                    }
-                });
+                            }
+                        });
+                        llockerSelected.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,llockerSelected.getText().toString().replaceAll("\n","").trim());
+                                startActivity(new Intent(LockersArea.this,booking.class));
+
+                            }
+                        });
+                        llockerUnselected.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+//                        MySharedPrefrence.putString(LockersArea.this,Constants.Keys.LOCKOER_ID,lockerUnselected.getText().toString().replaceAll("\n","").trim());
+//startActivity(new Intent(LockersArea.this,booking.class));
+
+                                Toast.makeText(LockersArea.this, getResources().getString(R.string.unav)
+                                        ,
+                                        Toast.LENGTH_SHORT).show();
+
+
+//
+                            }
+                        });
                     }
 
                     @Override public void onLongItemClick(View view, int position) {
