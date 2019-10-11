@@ -3,11 +3,7 @@ package com.example.a444app;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -20,9 +16,7 @@ import androidx.fragment.app.Fragment;
 
 //import com.bumptech.glide.Glide;
 //import com.bumptech.glide.request.RequestOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Main2Activity extends AppCompatActivity
@@ -106,7 +100,7 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.nav_students) {
             setTitle(R.string.menu_students);
-            Students students = new Students();
+            StudentsFragment students = new StudentsFragment();
             replaceFrag(students);
 
         }

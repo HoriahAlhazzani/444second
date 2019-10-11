@@ -7,19 +7,6 @@
 
 >
 
-<!--    <Button-->
-<!--        android:id="@+id/lockerId"-->
-<!--        android:layout_width="121dp"-->
-<!--        android:layout_height="117dp"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_marginTop="35dp"-->
-<!--        android:layout_marginRight="301dp"-->
-<!--        android:background="@drawable/locker_unselected"-->
-<!--        android:paddingTop="43dp"-->
-<!--        android:text="G-195"-->
-<!--        android:textColor="@color/whiteTextColor"-->
-<!--        android:textSize="13sp" />-->
     <TextView
         android:id="@+id/lockerSelected"
         android:layout_marginTop="10dp"

@@ -280,6 +280,9 @@ TextView login_text;
         MySharedPrefrence.putString(this,Constants.Keys.USER_ID,ID.getText().toString());
         MySharedPrefrence.putString(this, Constants.Keys.USER_PASS, password.getText().toString());
 
+        MySharedPrefrence.putBoolean(this, Constants.Keys.STUDENT_BOOK, false);
+
+
 
 
 
@@ -295,7 +298,7 @@ TextView login_text;
          String upasswordr=password.getText().toString().trim();
          String uphoner=phoneE.getText().toString().trim();
 
-         UserInformation userInformation=new UserInformation(unamer,uemailr,uidr,upasswordr,uphoner);
+         UserInformation userInformation=new UserInformation(false,unamer,uemailr,uidr,upasswordr,uphoner);
          FirebaseUser user=mAuth.getCurrentUser();
          databaseReference.child("users").child(user.getUid()).setValue(userInformation);
 

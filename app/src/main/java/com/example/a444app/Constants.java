@@ -19,7 +19,7 @@ public class Constants {
 //        int AREA = -1;
 
      String IS_ADMIN ="is_admin" ;
-
+        String STUDENT_BOOK= "STUDENT_BOOK";
 
         String IS_LOGIN ="is_login" ;
         String USER_NAME = "user_name";
@@ -32,6 +32,7 @@ public class Constants {
 
         String QUESTION ="question" ;
 
+        String SEARCHED_STUDENT="SEARCHED_STUDENT";
         String USER_ID="user_id";
         String USER_IMG="user_image";
         String ENABLE_NOTI="enable_noti";

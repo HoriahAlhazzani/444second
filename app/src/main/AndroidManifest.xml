@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a444app">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".payment"></activity>
+        <activity android:name=".StudentInfoActivity"></activity>
+        <activity android:name=".payment" />
         <activity android:name=".booking" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".ForgotPasswordActivity" />
@@ -23,11 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Languages" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

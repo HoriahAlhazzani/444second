@@ -97,7 +97,7 @@ Toolbar toolbar;
 
                                                         else
                                                             startActivity(new Intent(ForgotPasswordActivity.this, MainActivity.class));
-                                                        
+
                                                     } else {
                                                         Log.d(TAG, "password not updated.");
                                                         Toast.makeText(ForgotPasswordActivity.this, "password not updated."
