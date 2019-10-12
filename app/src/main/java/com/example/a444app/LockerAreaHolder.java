@@ -96,6 +96,7 @@ LockersArea lockersArea;
             lockerSelected.setVisibility(View.GONE);
 
         }
+
     }
 
 //    @Override
